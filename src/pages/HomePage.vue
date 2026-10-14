@@ -150,7 +150,7 @@
                             <h2>Security built for the risks beyond your perimeter</h2>
                             <p>
                                 From cybersecurity leadership and adversary-led testing to
-                                executive protection and team readiness, our five integrated
+                                executive protection and team readiness, Our five integrated
                                 capabilities help you see risk clearly and act with confidence.
                             </p>
                         </div>
@@ -167,10 +167,11 @@
                                         fill="#C9D9F8" stroke="#7E9FD9" stroke-width="2" />
                                     <path d="M84 111H104" stroke="#8AA5D4" stroke-width="3" stroke-linecap="round" />
                                     <g class="services-shield-float">
-                                        <path d="M94 37L119 46V64C119 79.5 108.5 88.5 94 94C79.5 88.5 69 79.5 69 64V46L94 37Z"
+                                        <path
+                                            d="M94 37L119 46V64C119 79.5 108.5 88.5 94 94C79.5 88.5 69 79.5 69 64V46L94 37Z"
                                             fill="#2563EB" />
-                                        <path d="M83 64L91 72L106 56" stroke="white" stroke-width="4" stroke-linecap="round"
-                                            stroke-linejoin="round" />
+                                        <path d="M83 64L91 72L106 56" stroke="white" stroke-width="4"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </g>
                                     <g class="services-badge-float">
                                         <circle cx="165" cy="32" r="16" fill="#DBEAFE" />
@@ -183,8 +184,8 @@
                                 </g>
                                 <circle class="services-art-spark spark-one" cx="27" cy="43" r="3" fill="#60A5FA" />
                                 <circle class="services-art-spark spark-two" cx="174" cy="77" r="2.5" fill="#93C5FD" />
-                                <path class="services-art-cross" d="M24 70H32M28 66V74" stroke="#60A5FA" stroke-width="2"
-                                    stroke-linecap="round" />
+                                <path class="services-art-cross" d="M24 70H32M28 66V74" stroke="#60A5FA"
+                                    stroke-width="2" stroke-linecap="round" />
                             </svg>
                         </div>
                     </div>
@@ -247,23 +248,28 @@
                                     <stop offset="1" stop-color="#2563eb" />
                                 </linearGradient>
                                 <filter id="shield-shadow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#2563eb" flood-opacity=".32" />
+                                    <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#2563eb"
+                                        flood-opacity=".32" />
                                 </filter>
                             </defs>
                             <circle class="art-halo" cx="137" cy="101" r="85" />
                             <circle class="art-orbit" cx="137" cy="101" r="75" />
                             <g class="laptop-float">
-                                <rect x="49" y="33" width="157" height="111" rx="10" fill="#dbeafe" stroke="#8eb7f9" stroke-width="2" />
+                                <rect x="49" y="33" width="157" height="111" rx="10" fill="#dbeafe" stroke="#8eb7f9"
+                                    stroke-width="2" />
                                 <rect x="57" y="41" width="141" height="95" rx="5" fill="url(#laptop-screen)" />
-                                <path d="M43 146h169l13 16c1 2-.4 4-3 4H32c-2.6 0-4-2-3-4l14-16Z" fill="#a9c7f5" stroke="#7ca8ea" stroke-width="2" />
+                                <path d="M43 146h169l13 16c1 2-.4 4-3 4H32c-2.6 0-4-2-3-4l14-16Z" fill="#a9c7f5"
+                                    stroke="#7ca8ea" stroke-width="2" />
                                 <path d="M43 146h169" stroke="#eef6ff" stroke-width="2" stroke-linecap="round" />
                                 <rect x="103" y="152" width="54" height="4" rx="2" fill="#7ca8ea" />
                                 <circle cx="127.5" cy="37" r="1.4" fill="#6ea5fa" />
                                 <path d="M69 59h38M69 67h22" stroke="#35527e" stroke-width="3" stroke-linecap="round" />
                                 <circle cx="183" cy="59" r="4" fill="#34d399" />
                                 <g class="shield-float" filter="url(#shield-shadow)">
-                                    <path d="M128 66 155 76v22c0 20-12 33-27 41-15-8-27-21-27-41V76l27-10Z" fill="url(#shield-fill)" stroke="#bfdbfe" stroke-width="2" />
-                                    <path d="m116 98 8 8 17-19" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M128 66 155 76v22c0 20-12 33-27 41-15-8-27-21-27-41V76l27-10Z"
+                                        fill="url(#shield-fill)" stroke="#bfdbfe" stroke-width="2" />
+                                    <path d="m116 98 8 8 17-19" fill="none" stroke="#fff" stroke-width="5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                 </g>
                             </g>
                             <circle class="art-spark spark-one" cx="49" cy="57" r="4" />
@@ -316,7 +322,8 @@
 
                         <div class="form-field">
                             <label for="contact-name">Name</label>
-                            <InputText id="contact-name" v-model="form.name" autocomplete="name" placeholder="Your name" />
+                            <InputText id="contact-name" v-model="form.name" autocomplete="name"
+                                placeholder="Your name" />
                         </div>
                         <div class="form-field">
                             <label for="contact-email">Work email</label>
@@ -1768,6 +1775,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes laptop-hover {
+
     0%,
     100% {
         transform: translateY(0);
@@ -1779,6 +1787,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes shield-hover {
+
     0%,
     100% {
         transform: translateY(0) scale(1);
@@ -1790,6 +1799,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes spark-pulse {
+
     0%,
     100% {
         opacity: 0.55;

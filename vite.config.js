@@ -1,12 +1,14 @@
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
+   base: '/skiets/',
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
-      '@': '/Users/johnreydalit/Personal Projects/CyberSecurity/src',
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 })
