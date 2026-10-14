@@ -202,7 +202,7 @@
                             <p class="service-kicker">{{ service.title }}</p>
                             <h3>{{ service.headline }}</h3>
                             <p class="service-description">{{ service.summary }}</p>
-                            <a class="service-explore" :href="`/services/${service.slug}`">
+                            <a class="service-explore" :href="`${baseUrl}services/${service.slug}`">
                                 Explore service
                                 <IconArrowRight :size="16" aria-hidden="true" />
                             </a>
@@ -403,6 +403,7 @@ import {
 import { services } from '@/data/homepageServices'
 
 const toast = useToast()
+const baseUrl = import.meta.env.BASE_URL
 const activeSection = ref('home')
 const isDark = ref(
     typeof window !== 'undefined' &&

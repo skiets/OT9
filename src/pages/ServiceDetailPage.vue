@@ -2,16 +2,16 @@
   <div v-if="service" class="service-page" :class="{ 'is-dark': isDark, dark: isDark }">
     <header class="detail-header">
       <div class="detail-header-inner">
-        <a class="wordmark" href="/" aria-label="OT9 Labs home">
+        <a class="wordmark" :href="baseUrl" aria-label="OT9 Labs home">
           <span class="wordmark-main">OT<span>9</span></span>
           <span class="wordmark-sub">LABS</span>
         </a>
 
         <nav class="detail-nav" aria-label="Main navigation">
-          <a href="/#home">Home</a>
-          <a href="/#services" aria-current="page">Services</a>
-          <a href="/#approach">Approach</a>
-          <a href="/#contact">Contact</a>
+          <a :href="`${baseUrl}#home`">Home</a>
+          <a :href="`${baseUrl}#services`" aria-current="page">Services</a>
+          <a :href="`${baseUrl}#approach`">Approach</a>
+          <a :href="`${baseUrl}#contact`">Contact</a>
         </nav>
 
         <div class="detail-actions">
@@ -32,7 +32,7 @@
       <section class="detail-hero">
         <div class="detail-grid" aria-hidden="true"></div>
         <div class="detail-container detail-hero-inner">
-          <a class="back-link" href="/#services">
+          <a class="back-link" :href="`${baseUrl}#services`">
             <IconArrowLeft :size="16" aria-hidden="true" />
             All services
           </a>
@@ -45,7 +45,7 @@
           <h1>{{ service.headline }}</h1>
           <p class="detail-lead">{{ service.intro }}</p>
           <p class="detail-description">{{ service.description }}</p>
-          <a class="detail-primary-link" href="/#contact">
+          <a class="detail-primary-link" :href="`${baseUrl}#contact`">
             Talk to our team
             <IconArrowRight :size="17" aria-hidden="true" />
           </a>
@@ -185,6 +185,7 @@ import {
 import { services } from '@/data/homepageServices'
 
 const route = useRoute()
+const baseUrl = import.meta.env.BASE_URL
 const isDark = ref(
   typeof window !== 'undefined' &&
     (window.localStorage.getItem('ot9-theme') === 'dark' ||
