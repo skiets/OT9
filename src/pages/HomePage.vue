@@ -142,6 +142,32 @@
                 </div>
             </section>
 
+            <section id="about" class="about-section">
+                <div class="section-container about-layout">
+                    <div class="about-heading">
+                        <p class="eyebrow"><span></span> About us</p>
+                        <h2>WHY OT<span class="text-blue-600">9</span> LABS</h2>
+                        <p class="about-tagline">Security Intelligence. Offensive Thinking. Decisive Action.</p>
+                    </div>
+                    <div class="about-copy">
+                        <p class="about-lead">We don’t wait for the breach.</p>
+                        <p>We identify exposure. Challenge assumptions. Test defenses. Protect people. Prepare teams.
+                        </p>
+                        <p>
+                            OT9 Labs combines cybersecurity leadership, offensive security, digital risk protection,
+                            threat intelligence, protective intelligence, and operational readiness to help
+                            organizations stay ahead of evolving threats.
+                        </p>
+                        <p class="about-emphasis">Because your adversary is already looking for weaknesses.</p>
+                        <p class="about-lead">We help you find them first.</p>
+                        <p class="about-signoff">
+                            <strong>OT9 LABS</strong>
+                            <span>Anticipate. Expose. Protect.</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <section id="services" class="services-section">
                 <div class="section-container">
                     <div class="services-heading">
@@ -150,9 +176,13 @@
                             <h2>Security built for the risks beyond your perimeter</h2>
                             <p>
                                 From cybersecurity leadership and adversary-led testing to
-                                executive protection and team readiness, Our five integrated
+                                executive protection and team readiness, our five integrated
                                 capabilities help you see risk clearly and act with confidence.
                             </p>
+                            <a class="all-services-link" :href="`${baseUrl}services`">
+                                VIEW ALL SERVICE DETAILS
+                                <IconArrowRight :size="16" aria-hidden="true" />
+                            </a>
                         </div>
                         <div class="laptop-shield-art" aria-hidden="true">
                             <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,88 +239,58 @@
                         </article>
                     </div>
 
-                    <aside class="services-commitment">
-                        <p class="eyebrow"><span></span> Security is a team sport</p>
-                        <h3>One security partner. Five layers of protection.</h3>
-                        <p>
-                            Technology can detect a threat. Intelligence can identify and
-                            contextualize it. Leadership can make the decision. When a situation
-                            changes in real time, people must know how to work together. OT9 Labs
-                            bridges cybersecurity, intelligence, leadership, and action—helping
-                            organizations anticipate threats, expose weaknesses, protect people,
-                            and respond effectively when it matters most.
-                        </p>
-                        <p class="services-commitment-close">
-                            We don’t wait for the breach. We identify exposure, challenge
-                            assumptions, test defenses, protect people, and prepare teams—because
-                            your adversary is already looking for weaknesses. We help you find them
-                            first.
-                        </p>
-                    </aside>
                 </div>
             </section>
 
-            <section id="approach" class="approach-section">
-                <div class="section-container">
-                    <div class="section-heading approach-heading">
-                        <div>
-                            <p class="eyebrow"><span></span> From insight to action</p>
-                            <h2>Know the risk. Make the next move.</h2>
-                        </div>
-                        <svg class="approach-art" viewBox="0 0 260 210" aria-hidden="true" focusable="false">
-                            <defs>
-                                <linearGradient id="laptop-screen" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0" stop-color="#12264c" />
-                                    <stop offset="1" stop-color="#09152e" />
-                                </linearGradient>
-                                <linearGradient id="shield-fill" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0" stop-color="#60a5fa" />
-                                    <stop offset="1" stop-color="#2563eb" />
-                                </linearGradient>
-                                <filter id="shield-shadow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#2563eb"
-                                        flood-opacity=".32" />
-                                </filter>
-                            </defs>
-                            <circle class="art-halo" cx="137" cy="101" r="85" />
-                            <circle class="art-orbit" cx="137" cy="101" r="75" />
-                            <g class="laptop-float">
-                                <rect x="49" y="33" width="157" height="111" rx="10" fill="#dbeafe" stroke="#8eb7f9"
-                                    stroke-width="2" />
-                                <rect x="57" y="41" width="141" height="95" rx="5" fill="url(#laptop-screen)" />
-                                <path d="M43 146h169l13 16c1 2-.4 4-3 4H32c-2.6 0-4-2-3-4l14-16Z" fill="#a9c7f5"
-                                    stroke="#7ca8ea" stroke-width="2" />
-                                <path d="M43 146h169" stroke="#eef6ff" stroke-width="2" stroke-linecap="round" />
-                                <rect x="103" y="152" width="54" height="4" rx="2" fill="#7ca8ea" />
-                                <circle cx="127.5" cy="37" r="1.4" fill="#6ea5fa" />
-                                <path d="M69 59h38M69 67h22" stroke="#35527e" stroke-width="3" stroke-linecap="round" />
-                                <circle cx="183" cy="59" r="4" fill="#34d399" />
-                                <g class="shield-float" filter="url(#shield-shadow)">
-                                    <path d="M128 66 155 76v22c0 20-12 33-27 41-15-8-27-21-27-41V76l27-10Z"
-                                        fill="url(#shield-fill)" stroke="#bfdbfe" stroke-width="2" />
-                                    <path d="m116 98 8 8 17-19" fill="none" stroke="#fff" stroke-width="5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </g>
-                            </g>
-                            <circle class="art-spark spark-one" cx="49" cy="57" r="4" />
-                            <circle class="art-spark spark-two" cx="213" cy="118" r="3" />
-                            <path class="art-spark spark-cross" d="M213 48v12m-6-6h12" />
-                        </svg>
-                        <p class="approach-intro">
-                            We work with your team to uncover the risks that matter and turn clear
-                            findings into practical next steps.
-                        </p>
-                    </div>
+            <section id="team-sport">
 
-                    <div class="steps-grid">
-                        <article v-for="(step, index) in steps" :key="step.title" class="step-item reveal-on-scroll">
-                            <div class="step-meta">
-                                <div class="step-number">{{ String(index + 1).padStart(2, "0") }}</div>
-                                <span>Step {{ String(index + 1).padStart(2, "0") }}</span>
+                <div class="team-sport-section">
+                    <div class="section-container team-sport-layout">
+                        <div class="team-sport-heading">
+                            <p class="eyebrow"><span></span> The OT9 perspective</p>
+                            <h2>{{ securityPositioning.title }}</h2>
+                            <div class="team-sport-mark" aria-hidden="true">
+                                <IconShield :size="34" />
+                                <span></span>
+                                <IconTarget :size="34" />
+                                <span></span>
+                                <IconUsersGroup :size="34" />
                             </div>
-                            <h3>{{ step.title }}</h3>
-                            <p>{{ step.description }}</p>
-                        </article>
+                        </div>
+                        <div class="team-sport-copy">
+                            <div class="team-sport-principles">
+                                <p v-for="paragraph in securityPositioning.paragraphs.slice(0, 3)" :key="paragraph">
+                                    {{ paragraph }}
+                                </p>
+                            </div>
+                            <p class="team-sport-emphasis">{{ securityPositioning.paragraphs[3] }}</p>
+                            <p class="team-sport-conclusion">{{ securityPositioning.paragraphs[4] }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-layers-section">
+                    <div class="section-container">
+                        <div class="security-layers-heading">
+                            <p class="eyebrow"><span></span> Integrated security capabilities</p>
+                            <h2>ONE SECURITY PARTNER. FIVE LAYERS OF PROTECTION.</h2>
+                            <p>
+                                Security is no longer confined to the network perimeter. Modern threats
+                                move across technology, identities, people, organizations, and the
+                                physical world. Effective security must do the same. OT9 Labs provides
+                                an integrated security capability across five critical dimensions:
+                            </p>
+                        </div>
+                        <div class="security-layers">
+                            <article v-for="(layer, index) in securityLayers" :key="layer.dimension"
+                                class="security-layer">
+                                <span class="security-layer-number">0{{ index + 1 }}</span>
+                                <p class="security-layer-dimension">{{ layer.dimension }}</p>
+                                <h3>{{ layer.service }}</h3>
+                                <p>{{ layer.description }}</p>
+                            </article>
+                        </div>
+                        <p class="security-layers-conclusion">{{ securityLayersConclusion }}</p>
                     </div>
                 </div>
             </section>
@@ -399,8 +399,10 @@ import {
     IconShield,
     IconSun,
     IconX,
+    IconTarget,
+    IconUsersGroup,
 } from '@tabler/icons-vue'
-import { services } from '@/data/homepageServices'
+import { securityLayers, securityLayersConclusion, securityPositioning, services } from '@/data/homepageServices'
 
 const toast = useToast()
 const baseUrl = import.meta.env.BASE_URL
@@ -417,32 +419,15 @@ let sectionObserver
 const navigation = computed(() =>
     [
         { label: 'Home', url: '#home', id: 'home' },
+        { label: 'About Us', url: '#about', id: 'about' },
         { label: 'Services', url: '#services', id: 'services' },
-        { label: 'Approach', url: '#approach', id: 'approach' },
+        { label: 'Team Sport', url: '#team-sport', id: 'team-sport' },
         { label: 'Contact', url: '#contact', id: 'contact' },
     ].map((item) => ({
         ...item,
         class: activeSection.value === item.id ? 'is-current' : '',
     })),
 )
-const steps = [
-    {
-        title: 'Understand',
-        description: 'We learn your priorities, environment, and the people and assets you need to protect.',
-    },
-    {
-        title: 'Identify',
-        description: 'We examine your security program and test how an adversary could reach your objectives.',
-    },
-    {
-        title: 'Prioritize',
-        description: 'We validate findings and explain their real-world impact in plain language.',
-    },
-    {
-        title: 'Respond',
-        description: 'We help you choose practical next steps and strengthen readiness where it matters.',
-    },
-]
 const serviceOptions = [
     'CISO as a service',
     'Red team operations',
@@ -548,7 +533,7 @@ onMounted(() => {
     }
 
     if (supportsIntersectionObserver) {
-        const sectionOrder = ['home', 'services', 'approach', 'contact']
+        const sectionOrder = ['home', 'about', 'services', 'team-sport', 'contact']
         const intersectingSections = new Set()
         sectionObserver = new IntersectionObserver(
             (entries) => {
@@ -567,7 +552,7 @@ onMounted(() => {
             },
             { threshold: 0, rootMargin: '-15% 0px -70% 0px' },
         )
-        document.querySelectorAll('#home, #services, #approach, #contact').forEach((section) => {
+        document.querySelectorAll('#home, #about, #services, #team-sport, #contact').forEach((section) => {
             sectionObserver.observe(section)
         })
     }
@@ -1060,6 +1045,85 @@ onBeforeUnmount(() => {
     border-bottom: 1px solid #e6ebf3;
 }
 
+.about-section {
+    padding-block: 5.5rem;
+    color: var(--ink);
+    background: var(--mist);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 7rem);
+}
+
+.about-heading .eyebrow {
+    color: var(--brand);
+}
+
+.about-heading h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
+    font-weight: 800;
+    letter-spacing: -0.07em;
+    line-height: 0.98;
+}
+
+.about-tagline {
+    max-width: 400px;
+    margin: 1.4rem 0 0;
+    color: var(--brand);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.35;
+}
+
+.about-copy {
+    display: grid;
+    gap: 1rem;
+    padding-left: 1.6rem;
+    border-left: 1px solid rgb(37 99 235 / 30%);
+}
+
+.about-copy p {
+    margin: 0;
+    color: var(--soft-text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.about-copy .about-lead {
+    color: var(--ink);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.about-copy .about-emphasis {
+    color: var(--brand);
+    font-weight: 700;
+}
+
+.about-copy .about-signoff {
+    display: grid;
+    gap: 0.2rem;
+    margin-top: 0.35rem;
+}
+
+.about-signoff strong {
+    color: var(--ink);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+}
+
+.about-signoff span {
+    color: var(--brand);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
 .pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1101,8 +1165,7 @@ onBeforeUnmount(() => {
     line-height: 1.6;
 }
 
-.services-section,
-.approach-section {
+.services-section {
     padding-block: 6.5rem;
 }
 
@@ -1187,6 +1250,30 @@ onBeforeUnmount(() => {
     flex: 1;
 }
 
+.services-heading-copy h2,
+.service-item h3 {
+    text-transform: uppercase;
+}
+
+.all-services-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1rem;
+    color: var(--brand);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.all-services-link:hover svg {
+    transform: translateX(3px);
+}
+
+.all-services-link svg {
+    transition: transform 180ms ease;
+}
+
 .section-heading h2 {
     font-size: clamp(2.1rem, 4vw, 3.25rem);
     letter-spacing: -0.065em;
@@ -1208,37 +1295,186 @@ onBeforeUnmount(() => {
     margin-top: 3rem;
 }
 
-.services-commitment {
-    margin-top: 3.5rem;
-    padding: 2rem 2.2rem;
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--brand);
-    border-radius: 10px;
-    background: var(--mist);
+.team-sport-section {
+    position: relative;
+    overflow: hidden;
+    padding-block: 5.5rem;
+    color: #e8eefb;
+    background:
+        radial-gradient(ellipse at 8% 0%, rgb(37 99 235 / 27%), transparent 38%),
+        linear-gradient(135deg, #08142d, #101f3d 62%, #0b1730);
 }
 
-.services-commitment .eyebrow {
+.team-sport-section::before {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgb(148 177 225 / 5%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(148 177 225 / 5%) 1px, transparent 1px);
+    background-size: 42px 42px;
+    content: '';
+    mask-image: linear-gradient(90deg, #000, transparent 85%);
+    pointer-events: none;
+}
+
+.team-sport-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 7rem);
+}
+
+.team-sport-heading .eyebrow {
+    color: #8eb4ff;
+}
+
+.team-sport-heading h2 {
+    max-width: 490px;
     margin: 0;
-}
-
-.services-commitment h3 {
-    margin: 0.75rem 0 0;
-    font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
     font-weight: 800;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.07em;
+    line-height: 0.98;
 }
 
-.services-commitment>p:not(.eyebrow) {
-    max-width: 900px;
-    margin: 0.8rem 0 0;
-    color: var(--soft-text);
-    font-size: 0.84rem;
+.team-sport-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2.2rem;
+    color: #8eb4ff;
+}
+
+.team-sport-mark span {
+    width: clamp(1.2rem, 3vw, 3rem);
+    height: 1px;
+    background: linear-gradient(90deg, #477de1, rgb(142 180 255 / 20%));
+}
+
+.team-sport-copy {
+    padding-left: 1.6rem;
+    border-left: 1px solid rgb(142 180 255 / 32%);
+}
+
+.team-sport-principles {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.team-sport-principles p {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.team-sport-emphasis {
+    margin: 1.5rem 0 0;
+    color: #a9c8ff;
+    font-size: 1rem;
+    font-weight: 700;
     line-height: 1.8;
 }
 
-.services-commitment-close {
-    color: var(--ink) !important;
+.team-sport-conclusion {
+    margin: 1.1rem 0 0;
+    color: #b9c6dd;
+    font-size: 0.9rem;
+    line-height: 1.85;
+}
+
+.security-layers-section {
+    padding-block: 5.5rem;
+    background: var(--mist);
+}
+
+.security-layers-heading {
+    max-width: 850px;
+}
+
+.security-layers-heading h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 800;
+    letter-spacing: -0.065em;
+    line-height: 1.08;
+    text-transform: uppercase;
+}
+
+.security-layers-heading>p:last-child {
+    margin: 1rem 0 0;
+    color: var(--soft-text);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.security-layers {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.security-layer {
+    position: relative;
+    min-width: 0;
+    padding: 1.25rem 1rem;
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--brand);
+    border-radius: 10px;
+    background: var(--page);
+    box-shadow: 0 8px 24px rgb(10 26 69 / 4%);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.security-layer:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgb(10 26 69 / 9%);
+}
+
+.security-layer-number {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.8rem;
+    color: #aab8d0;
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.security-layer-dimension {
+    margin: 0 !important;
+    color: var(--brand) !important;
+    font-size: 0.62rem !important;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.security-layer h4 {
+    margin: 0.5rem 0 0;
+    color: var(--ink);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.security-layer>p:last-child {
+    margin-top: 0.45rem !important;
+    font-size: 0.7rem !important;
+}
+
+.service-item h3 {
+    text-transform: uppercase;
+}
+
+.security-layer h3 {
+    margin: 0.55rem 1rem 0 0;
+    color: var(--ink);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
 .service-item {
@@ -1353,8 +1589,7 @@ onBeforeUnmount(() => {
     background: var(--brand);
 }
 
-.service-item h3,
-.step-item h3 {
+.service-item h3 {
     margin: 0;
     color: var(--ink);
     font-size: 1rem;
@@ -1362,142 +1597,12 @@ onBeforeUnmount(() => {
     letter-spacing: -0.035em;
 }
 
-.service-item p,
-.step-item p {
+.service-item p {
     max-width: 350px;
     margin: 0.65rem 0 0;
     color: #69758b;
     font-size: 0.82rem;
     line-height: 1.8;
-}
-
-.approach-section {
-    background: var(--mist);
-}
-
-.approach-section .section-heading {
-    max-width: 100%;
-}
-
-.approach-heading {
-    position: relative;
-    min-height: 190px;
-    padding-right: 250px;
-}
-
-.approach-art {
-    position: absolute;
-    top: -1.25rem;
-    right: 0.5rem;
-    width: 225px;
-    height: auto;
-    overflow: visible;
-}
-
-.art-halo {
-    fill: #dbeafe;
-    opacity: 0.7;
-}
-
-.site-shell.is-dark .art-halo {
-    fill: #1b3155;
-}
-
-.art-orbit {
-    fill: none;
-    stroke: #93c5fd;
-    stroke-width: 1.5;
-    stroke-dasharray: 3 7;
-    transform-origin: 137px 101px;
-    animation: orbit-rotate 24s linear infinite;
-}
-
-.laptop-float {
-    transform-origin: 130px 105px;
-    animation: laptop-hover 4.8s ease-in-out infinite;
-}
-
-.shield-float {
-    transform-origin: 128px 98px;
-    animation: shield-hover 3.2s ease-in-out infinite;
-}
-
-.art-spark {
-    fill: #38bdf8;
-    animation: spark-pulse 2.4s ease-in-out infinite;
-}
-
-.spark-two {
-    animation-delay: 0.8s;
-}
-
-.spark-cross {
-    fill: none;
-    stroke: #60a5fa;
-    stroke-width: 2;
-    stroke-linecap: round;
-    animation: spark-pulse 2.4s ease-in-out 1.2s infinite;
-}
-
-.approach-intro {
-    max-width: 600px;
-    margin: 1rem 0 0;
-    color: #69758b;
-    font-size: 0.9rem;
-    line-height: 1.75;
-}
-
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.15rem;
-    margin-top: 3.1rem;
-}
-
-.step-item {
-    min-height: 220px;
-    padding: 1.4rem;
-    border: 1px solid #e0e7f2;
-    border-top: 2px solid transparent;
-    border-radius: 12px;
-    background: var(--page);
-    box-shadow: 0 8px 24px rgb(10 26 69 / 4%);
-    transition: transform 240ms cubic-bezier(0.2, 0.75, 0.25, 1), border-color 240ms ease, box-shadow 240ms ease;
-}
-
-.step-item:hover {
-    transform: translateY(-5px);
-    border-top-color: var(--brand);
-    box-shadow: 0 18px 34px rgb(10 26 69 / 10%);
-}
-
-.step-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-}
-
-.step-meta>span {
-    color: #8794aa;
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.step-number {
-    width: 46px;
-    height: 46px;
-    display: grid;
-    place-items: center;
-    flex: none;
-    border: 1px solid #dce7fc;
-    border-radius: 12px;
-    color: var(--brand);
-    background: #edf3ff;
-    font-size: 0.78rem;
-    font-weight: 800;
 }
 
 .contact-section {
@@ -1736,19 +1841,13 @@ onBeforeUnmount(() => {
 }
 
 .pillar:nth-child(2),
-.service-item:nth-child(3n + 2),
-.step-item:nth-child(2) {
+.service-item:nth-child(3n + 2) {
     transition-delay: 90ms;
 }
 
 .pillar:nth-child(3),
-.service-item:nth-child(3n),
-.step-item:nth-child(3) {
+.service-item:nth-child(3n) {
     transition-delay: 180ms;
-}
-
-.step-item:nth-child(4) {
-    transition-delay: 270ms;
 }
 
 @keyframes rise-in {
@@ -1903,7 +2002,6 @@ onBeforeUnmount(() => {
 .site-shell.is-dark .hero-description,
 .site-shell.is-dark .section-heading>p:last-child,
 .site-shell.is-dark .service-item p,
-.site-shell.is-dark .step-item p,
 .site-shell.is-dark .pillar p {
     color: var(--soft-text);
 }
@@ -1951,38 +2049,31 @@ onBeforeUnmount(() => {
     background: #2563eb;
 }
 
-.site-shell.is-dark .services-commitment {
+.site-shell.is-dark .security-layers-section {
     background: #111d35;
 }
 
-.site-shell.is-dark .approach-section {
-    background: #111d35;
-}
-
-.site-shell.is-dark .approach-intro {
-    color: var(--soft-text);
-}
-
-.site-shell.is-dark .step-item {
+.site-shell.is-dark .security-layer {
     border-color: #293b5b;
-    border-top-color: transparent;
+    border-top-color: #5688ed;
     background: #172640;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
 }
 
-.site-shell.is-dark .step-item:hover {
-    border-top-color: #77a4ff;
-    box-shadow: 0 18px 34px rgb(0 0 0 / 25%);
+.site-shell.is-dark .security-layer:hover {
+    box-shadow: 0 16px 32px rgb(0 0 0 / 20%);
 }
 
-.site-shell.is-dark .step-meta>span {
-    color: #9aaaca;
+.site-shell.is-dark .security-layer-number {
+    color: #8b9fbe;
 }
 
-.site-shell.is-dark .step-number {
-    border-color: #314c79;
-    color: #a9c6ff;
-    background: #20375c;
+.security-layers-conclusion {
+    max-width: 900px;
+    margin: 1.5rem 0 0;
+    color: var(--soft-text);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.8;
 }
 
 .site-shell.is-dark .contact-section {
@@ -2056,6 +2147,27 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 960px) {
+    .security-layers {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .site-shell.is-dark .site-menubar :deep(.p-menubar-root-list) {
+        border: 1px solid #293b5b;
+        border-radius: 10px;
+        background: #121f37;
+        box-shadow: 0 16px 32px rgb(0 0 0 / 28%);
+    }
+
+    .team-sport-layout {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 2.5rem;
+    }
+
+    .about-layout {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 2.5rem;
+    }
+
     .header-inner {
         grid-template-columns: 1fr auto;
         gap: 1rem;
@@ -2102,6 +2214,40 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 680px) {
+    .security-layers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-sport-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-section {
+        padding-block: 4rem;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-copy {
+        padding-left: 1rem;
+    }
+
+    .team-sport-section,
+    .security-layers-section {
+        padding-block: 4rem;
+    }
+
+    .team-sport-copy {
+        padding-left: 1rem;
+    }
+
+    .security-layer {
+        padding: 1rem 0.8rem;
+    }
 
     .section-container,
     .header-inner {
@@ -2181,7 +2327,6 @@ onBeforeUnmount(() => {
     }
 
     .services-section,
-    .approach-section,
     .contact-section {
         padding-block: 4.5rem;
     }
@@ -2205,57 +2350,6 @@ onBeforeUnmount(() => {
     .services-grid {
         grid-template-columns: 1fr;
         gap: 1.75rem;
-    }
-
-    .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-top: 2.3rem;
-    }
-
-    .approach-intro {
-        max-width: 480px;
-    }
-
-    .approach-heading {
-        min-height: 0;
-        padding-right: 0;
-    }
-
-    .approach-art {
-        position: relative;
-        display: block;
-        top: auto;
-        right: auto;
-        width: min(180px, 55vw);
-        margin: 1.5rem 0 -0.5rem auto;
-    }
-
-    .step-item {
-        display: grid;
-        grid-template-columns: 46px 1fr;
-        column-gap: 1rem;
-        align-items: start;
-        min-height: 0;
-        padding: 1.1rem;
-    }
-
-    .step-meta {
-        grid-row: span 2;
-        display: block;
-        margin: 0;
-    }
-
-    .step-number {
-        margin: 0;
-    }
-
-    .step-meta>span {
-        display: none;
-    }
-
-    .step-item p {
-        margin-top: 0.3rem;
     }
 
     .contact-grid {
@@ -2328,9 +2422,7 @@ onBeforeUnmount(() => {
         animation: none;
     }
 
-    .laptop-shield-art *,
-    .approach-art *,
-    .approach-art {
+    .laptop-shield-art * {
         animation: none;
     }
 
@@ -2344,8 +2436,7 @@ onBeforeUnmount(() => {
     }
 
     .service-item,
-    .service-icon-box,
-    .step-item {
+    .service-icon-box {
         transition: none;
     }
 
@@ -2354,10 +2445,6 @@ onBeforeUnmount(() => {
     }
 
     .service-item:hover .service-icon-box {
-        transform: none;
-    }
-
-    .step-item:hover {
         transform: none;
     }
 

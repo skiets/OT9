@@ -1,121 +1,236 @@
 import {
-  IconShield,
-  IconTarget,
   IconRadar,
-  IconUserShield,
+  IconShield,
   IconSwords,
+  IconTarget,
+  IconUserShield,
 } from '@tabler/icons-vue'
 
 export const services = [
   {
     slug: 'ciso-as-a-service',
     number: '01',
-    title: 'CISO as a service',
-    headline: 'Cybersecurity leadership built into your business rhythm.',
+    title: 'CISO AS A SERVICE',
+    headline: 'Executive Cybersecurity Leadership—Without the Full-Time Cost',
     summary:
-      'Executive strategy, governance, and security oversight for teams that need senior guidance without a full-time CISO.',
+      'Experienced cybersecurity leadership to establish strategy, governance, risk management, and accountability without a full-time CISO.',
     intro:
-      'We help leadership teams turn cyber risk into practical business decisions, clear accountability, and stronger resilience.',
+      'Not every organization needs a full-time CISO. Every organization needs CISO-level leadership.',
     description:
-      'Your business needs strategic clarity. We provide leadership support that aligns cyber priorities with operational reality, so decisions are informed, measurable, and action-oriented.',
+      'OT9 Labs provides experienced cybersecurity leadership on demand, helping organizations establish the strategy, governance, risk management, and accountability required to build a mature security program. We work alongside executive leadership, technology teams, and boards to transform cybersecurity from a technical concern into a business priority.',
     icon: IconShield,
-    protectionAreas: [
-      'Risk appetite and priorities aligned to business objectives',
-      'Security governance and program maturity reviews',
-      'Board-ready reporting and action planning',
-      'Hands-on leadership support for critical decisions',
+    sections: [
+      {
+        label: 'WHAT WE DELIVER',
+        items: [
+          'Cybersecurity strategy and roadmaps',
+          'Security governance and policy development',
+          'Risk assessments and risk management',
+          'Board and executive advisory',
+          'Incident response planning',
+          'Security architecture oversight',
+          'Regulatory and compliance readiness',
+          'Third-party and supply-chain risk management',
+          'Security program development',
+          'Fractional CISO leadership and advisory',
+        ],
+      },
     ],
-    outcome:
-      'Your organization gains executive-level cyber visibility and a practical path to reduce risk without slowing business momentum.',
+    outcome: 'Stronger security. Better decisions. Clearer accountability.',
   },
   {
     slug: 'red-team-operations',
     number: '02',
-    title: 'Red team operations',
-    headline: 'Adversary-led testing that exposes real-world weakness.',
+    title: 'RED TEAM OPERATIONS',
+    headline: 'Think Like an Adversary. Find the Weakness First.',
     summary:
-      'Simulate realistic attacks to identify gaps in technology, process, and decision-making before someone else does.',
+      'Intelligence-driven operations reveal weaknesses across people, technology, processes, and physical environments.',
     intro:
-      'We test how your people, systems, and processes behave under pressure so the real risks become visible before they become incidents.',
+      'The best way to understand your defenses is to test them from an adversary’s perspective.',
     description:
-      'Security programs need more than compliance checklists. We challenge assumptions from the attacker’s perspective to reveal the paths that matter most and help teams improve with confidence.',
+      'OT9 Labs conducts realistic, intelligence-driven red team operations designed to uncover weaknesses across people, technology, processes, and physical environments. We simulate how a determined adversary could identify an opportunity, gain access, exploit weaknesses, move through an environment, and achieve an objective. We combine human expertise, automation, threat intelligence, and AI-assisted techniques to challenge defensive capabilities and identify attack paths before they can be exploited.',
     icon: IconTarget,
-    stages: [
-      'Identify the objective and relevant surfaces',
-      'Map exposure paths and likely opportunities',
-      'Test the plan with realistic tradecraft',
-      'Validate impact and prioritize action',
+    sections: [
+      {
+        label: 'OUR APPROACH',
+        flow: [
+          'RECONNAISSANCE',
+          'INITIAL ACCESS',
+          'EXPLOITATION',
+          'LATERAL MOVEMENT',
+          'OBJECTIVE',
+          'REPORT',
+        ],
+      },
+      {
+        label: 'AREAS WE TEST',
+        items: [
+          'External attack surfaces',
+          'Web applications and digital services',
+          'Identity and access controls',
+          'Cloud environments',
+          'Social engineering resilience',
+          'Physical security controls',
+          'Detection and response capabilities',
+          'Attack paths and lateral movement',
+          'Executive and high-value target exposure',
+        ],
+      },
     ],
-    outcome:
-      'You get an honest view of your current defenses and a more realistic understanding of where adversaries are likely to exploit gaps.',
+    outcome: 'Understand how you could be breached before an adversary shows you.',
   },
   {
     slug: 'digital-risk-protection',
     number: '03',
-    title: 'Digital risk protection',
-    headline: 'Visibility into the threats hiding outside your perimeter.',
+    title: 'DIGITAL RISK PROTECTION',
+    headline: 'Your Attack Surface Doesn’t End at the Firewall.',
     summary:
-      'Identify impersonation, leaked data, lookalikes, and exposure across the digital ecosystem before they escalate.',
+      'Identify exposed data, impersonation, malicious infrastructure, and emerging attack paths beyond your perimeter.',
     intro:
-      'Your exposure does not live only inside your network. We help surface the digital activity that can compromise trust, brand, and access.',
+      'Your organization’s digital footprint is constantly changing—and much of it exists outside your direct control.',
     description:
-      'Digital risk protection brings clarity to what is happening beyond your own systems. We monitor, validate, and prioritize exposures that impact people, brand, operations, and security posture.',
+      'Exposed credentials, leaked information, impersonation, malicious domains, fraudulent profiles, forgotten assets, and executive exposure can all create opportunities for attackers. OT9 Labs monitors your external digital environment to identify, validate, and prioritize risks before they become incidents.',
     icon: IconRadar,
-    monitoring: [
-      'Monitoring of exposed credentials and lookalike domains',
-      'Brand and executive impersonation detection',
-      'Threat intelligence correlation and context',
-      'Prioritized remediation guidance',
+    sections: [
+      {
+        label: 'WE MONITOR FOR',
+        items: [
+          'Exposed credentials',
+          'Data leaks',
+          'Dark web exposure',
+          'Domain and brand impersonation',
+          'Phishing infrastructure',
+          'Executive and key-person exposure',
+          'Rogue websites and applications',
+          'Social media impersonation',
+          'Exposed infrastructure',
+          'External attack surface changes',
+          'Third-party digital risks',
+        ],
+      },
+      {
+        label: 'FROM DISCOVERY TO ACTION',
+        intro:
+          'We don’t simply generate alerts. Our objective is straightforward: reduce exposure and disrupt opportunities before an adversary can exploit them.',
+        flow: ['WE IDENTIFY', 'WE VALIDATE', 'WE PRIORITIZE', 'WE RESPOND'],
+      },
     ],
-    outcome:
-      'Teams can act on external exposure quickly, reducing risk before attackers weaponize it against your people or brand.',
+    outcome: 'Less exposure. Fewer surprises. Faster response.',
   },
   {
     slug: 'vip-protection',
     number: '04',
-    title: 'VIP protection',
-    headline: 'Protection built around the person, not just the office.',
+    title: 'VIP PROTECTION',
+    headline: 'Protecting the People Behind the Organization.',
     summary:
-      'Protect high-value individuals and their families with security strategies tailored to real-world threats and operational risk.',
+      'Protect executives, high-value individuals, families, identities, and the organizations around them.',
     intro:
-      'High-risk individuals require a different level of awareness, planning, and protective intelligence. We help reduce exposure where it matters most.',
+      'Executives, founders, public figures, family offices, and high-net-worth individuals are increasingly targeted across both digital and physical environments.',
     description:
-      'We combine threat intelligence, digital monitoring, and practical protective planning to help secure the people who are most exposed to targeted risk.',
+      'A compromised executive can become a pathway into an organization. An exposed family member, leaked credential, impersonated identity, or predictable pattern of activity can create risks that traditional enterprise security programs may never see. OT9 Labs brings cybersecurity, threat intelligence, and protective intelligence together to protect high-value individuals, their families, their identities, and the organizations around them.',
     icon: IconUserShield,
-    protectionAreas: [
-      'Executive and VIP exposure reviews',
-      'Threat awareness and protective intelligence',
-      'Travel and event risk planning',
-      'Digital and social risk mitigation',
+    sections: [
+      {
+        label: 'PROTECTION INCLUDES',
+        items: [
+          'Executive cyber risk assessments',
+          'Digital footprint and exposure assessments',
+          'Continuous online exposure monitoring',
+          'Executive impersonation detection',
+          'Credential and data exposure monitoring',
+          'Threat and protective intelligence',
+          'Travel and location risk intelligence',
+          'Social engineering risk assessments',
+          'Family and household digital security',
+          'Incident response support',
+          'Coordination with physical protection teams',
+        ],
+      },
     ],
-    outcome:
-      'Executives and high-value individuals gain clearer situational awareness and a more resilient protection plan built around their actual risk profile.',
+    outcome: 'Protect the person. Protect the identity. Protect the organization.',
   },
   {
     slug: 'operational-readiness-and-small-unit-tactics',
     number: '05',
-    title: 'Operational readiness & small unit tactics',
-    headline: 'Prepare teams to act with clarity when conditions become uncertain.',
+    title: 'OPERATIONAL READINESS & SMALL UNIT TACTICS',
+    headline: 'Coordinated Teams. Clear Decisions. Controlled Response.',
     summary:
-      'Train teams to maintain awareness, communicate effectively, and make disciplined decisions under pressure.',
+      'Build team capabilities to communicate, coordinate, and act effectively in complex, rapidly changing environments.',
     intro:
-      'Readiness is not just about tools. It is about how a team thinks, responds, and coordinates when the pressure escalates.',
+      'Security incidents rarely unfold according to plan.',
     description:
-      'We design training and readiness programs that help teams respond thoughtfully, communicate clearly, and make effective decisions under operational stress.',
+      'When conditions change quickly, technology and intelligence alone are not enough. People must be able to communicate, coordinate, make sound decisions, and act effectively under pressure. OT9 Labs develops small-team operational capabilities for organizations and protective teams that require disciplined coordination in complex, rapidly changing environments. Our programs emphasize situational awareness, communication, leadership, protective movement, contingency planning, incident coordination, and scenario-based decision-making.',
     icon: IconSwords,
-    trainingAreas: [
-      'Threat awareness and decision-making under pressure',
-      'Communication and coordination during incidents',
-      'Leadership and role clarity in fast-moving conditions',
-      'Scenario-based exercises and team rehearsal',
+    sections: [
+      {
+        label: 'TRAINING AREAS',
+        items: [
+          'Team coordination and communication',
+          'Situational awareness',
+          'Threat recognition and assessment',
+          'Protective movement and formations',
+          'Site and venue security',
+          'Emergency response',
+          'Incident command and coordination',
+          'Contingency planning',
+          'Team leadership under pressure',
+          'Scenario-based exercises',
+        ],
+      },
+      {
+        label: 'THE OT9 APPROACH',
+        flow: ['ASSESS', 'PLAN', 'COORDINATE', 'RESPOND', 'ADAPT', 'RECOVER'],
+        intro:
+          'We develop teams that can maintain awareness, communicate clearly, and make disciplined decisions when conditions are uncertain and time is limited.',
+      },
     ],
-    readinessStages: [
-      'Assess current readiness',
-      'Clarify roles and decision paths',
-      'Train under realistic scenarios',
-      'Rehearse and refine response',
-    ],
-    outcome:
-      'Teams are better prepared to act decisively, communicate clearly, and handle uncertainty without losing focus or control.',
+    outcome: 'Better coordination. Faster decisions. More resilient teams.',
   },
 ]
+
+export const securityPositioning = {
+  title: 'SECURITY IS A TEAM SPORT.',
+  paragraphs: [
+    'Technology can detect a threat.',
+    'Intelligence can identify and contextualize it.',
+    'Leadership can make the decision.',
+    'But when a situation changes in real time, people must know how to work together.',
+    'OT9 Labs bridges the gap between intelligence, cybersecurity, leadership, and action—giving organizations the capabilities to anticipate threats, expose weaknesses, protect people, and respond effectively when it matters most.',
+  ],
+}
+
+export const securityLayers = [
+  {
+    dimension: 'LEADERSHIP',
+    service: 'CISO AS A SERVICE',
+    description:
+      'Build the strategy, governance, and executive accountability required to manage cyber risk.',
+  },
+  {
+    dimension: 'OFFENSE',
+    service: 'RED TEAM OPERATIONS',
+    description:
+      'Challenge defenses from an adversary’s perspective and uncover weaknesses before they are exploited.',
+  },
+  {
+    dimension: 'EXPOSURE',
+    service: 'DIGITAL RISK PROTECTION',
+    description:
+      'Identify external threats, exposed assets, impersonation, leaked information, and emerging attack paths.',
+  },
+  {
+    dimension: 'PEOPLE',
+    service: 'VIP PROTECTION',
+    description:
+      'Protect executives, high-value individuals, families, and digital identities from targeted threats.',
+  },
+  {
+    dimension: 'READINESS',
+    service: 'OPERATIONAL READINESS & SMALL UNIT TACTICS',
+    description:
+      'Prepare teams to coordinate, decide, and respond effectively when security situations move from intelligence to action.',
+  },
+]
+
+export const securityLayersConclusion =
+  'Together, these capabilities create a security model built for the reality of modern threats—where cyber, physical, human, and organizational risks increasingly intersect.'
