@@ -73,7 +73,7 @@
               <Button
                 as="a"
                 href="#contact"
-                label="Talk to our Team"
+                label="Talk to Our Team"
                 :class="[
                   'primary-button',
                   isDark ? 'text-black!' : 'text-white!',
