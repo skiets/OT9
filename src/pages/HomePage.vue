@@ -45,7 +45,7 @@
                             <span class="eyebrow-dot"></span>
                             OT9 LABS
                         </p>
-                        <h1 class="tracking-wide">Cybersecurity <span class="hero-highlight">beyond </span>the perimeter.</h1>
+                        <h1 class="tracking-wider!">Cybersecurity <span class="hero-highlight">beyond </span>the perimeter.</h1>
                         <p class="hero-description">
                             We help organizations and leaders uncover risks, strengthen defenses,
                             and protect what matters.
