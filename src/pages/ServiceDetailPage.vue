@@ -103,7 +103,10 @@
         v-for="(section, index) in service.sections"
         :key="section.label"
         class="detail-content"
-        :class="{ 'detail-content-muted': index % 2 === 1 }"
+        :class="{
+          'detail-content-muted': index % 2 === 1,
+          'detail-content-with-art': section.label === 'AREAS WE TEST',
+        }"
       >
         <div class="detail-container">
           <div class="detail-section-top">
@@ -899,6 +902,26 @@ function toggleTheme() {
 
 .detail-content-muted {
   background: var(--mist);
+}
+
+.detail-content-with-art::before {
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/red-team-background.svg");
+  background-repeat: no-repeat;
+  background-position: right 8% center;
+  background-size: min(46vw, 560px) auto;
+  content: "";
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+@media (max-width: 680px) {
+  .detail-content-with-art::before {
+    background-position: right -4rem bottom 1rem;
+    background-size: min(78vw, 360px) auto;
+    opacity: 0.1;
+  }
 }
 
 @media (max-width: 960px) {

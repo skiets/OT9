@@ -13,37 +13,20 @@
           <span class="wordmark-sub">LABS</span>
         </a>
 
-        <Menubar
-          :model="navigation"
-          class="site-menubar"
-          aria-label="Main navigation"
-        >
+        <Menubar :model="navigation" class="site-menubar" aria-label="Main navigation">
           <template #buttonicon>
             <IconMenu2 :size="20" aria-hidden="true" />
           </template>
         </Menubar>
 
         <div class="header-actions">
-          <Button
-            type="button"
-            class="theme-toggle"
-            text
-            rounded
-            :aria-label="
-              isDark ? 'Switch to light mode' : 'Switch to dark mode'
-            "
-            :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-            @click="toggleTheme"
-          >
+          <Button type="button" class="theme-toggle" text rounded :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'
+            " :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'" @click="toggleTheme">
             <IconSun v-if="isDark" :size="19" aria-hidden="true" />
             <IconMoon v-else :size="19" aria-hidden="true" />
           </Button>
-          <Button
-            as="a"
-            href="mailto:nyx@ot9labs.com"
-            label="Email Us"
-            :class="['header-cta', isDark ? 'text-black!' : 'text-white!']"
-          >
+          <Button as="a" href="mailto:nyx@ot9labs.com" label="Email Us"
+            :class="['header-cta', isDark ? 'text-black!' : 'text-white!']">
             <template #icon>
               <IconMail :size="17" aria-hidden="true" />
             </template>
@@ -70,32 +53,20 @@
               defenses, and protect what matters.
             </p>
             <div class="hero-actions">
-              <Button
-                as="a"
-                href="#contact"
-                label="Talk to Our Team"
-                :class="[
-                  'primary-button',
-                  isDark ? 'text-black!' : 'text-white!',
-                ]"
-              >
+              <Button as="a" href="#contact" label="Talk to Our Team" :class="[
+                'primary-button',
+                isDark ? 'text-black!' : 'text-white!',
+              ]">
                 <template #icon>
                   <IconArrowRight :size="17" aria-hidden="true" />
                 </template>
               </Button>
-              <Button
-                as="a"
-                href="#services"
-                label="See our Services"
-                outlined
-                class="secondary-button dark:text-black!"
-              />
+              <Button as="a" href="#services" label="See Our Services" outlined
+                class="secondary-button dark:text-black!" />
             </div>
             <div class="hero-trust">
               <IconShield class="trust-icon" :size="18" aria-hidden="true" />
-              <span
-                >Know your risk. Test your defenses. Protect what matters.</span
-              >
+              <span>Know your risk. Test your defenses. Protect what matters.</span>
             </div>
           </div>
 
@@ -116,29 +87,17 @@
 
               <div class="finding-list">
                 <div class="finding-row">
-                  <IconAlertCircle
-                    class="finding-icon critical"
-                    :size="17"
-                    aria-hidden="true"
-                  />
+                  <IconAlertCircle class="finding-icon critical" :size="17" aria-hidden="true" />
                   <span class="finding-name">Exposed executive credential</span>
                   <Tag value="Critical" severity="danger" />
                 </div>
                 <div class="finding-row">
-                  <IconInfoCircle
-                    class="finding-icon medium"
-                    :size="17"
-                    aria-hidden="true"
-                  />
+                  <IconInfoCircle class="finding-icon medium" :size="17" aria-hidden="true" />
                   <span class="finding-name">Lookalike domain detected</span>
                   <Tag value="Medium" severity="warn" />
                 </div>
                 <div class="finding-row">
-                  <IconCircleCheck
-                    class="finding-icon pass"
-                    :size="17"
-                    aria-hidden="true"
-                  />
+                  <IconCircleCheck class="finding-icon pass" :size="17" aria-hidden="true" />
                   <span class="finding-name">Executive profile protected</span>
                   <Tag value="Pass" severity="success" />
                 </div>
@@ -148,12 +107,8 @@
                 <span>Priority risks addressed</span>
                 <strong>72%</strong>
               </div>
-              <ProgressBar
-                :value="72"
-                :show-value="false"
-                class="remediation-progress"
-                aria-label="Remediation progress"
-              />
+              <ProgressBar :value="72" :show-value="false" class="remediation-progress"
+                aria-label="Remediation progress" />
               <p class="progress-note">
                 Illustrative sample of validated findings
               </p>
@@ -247,121 +202,51 @@
               </a>
             </div>
             <div class="laptop-shield-art" aria-hidden="true">
-              <svg
-                viewBox="0 0 200 150"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle class="services-art-halo" cx="101" cy="75" r="68" />
                 <circle class="services-art-orbit" cx="101" cy="75" r="63" />
                 <g class="services-laptop-float">
-                  <rect
-                    x="31"
-                    y="17"
-                    width="126"
-                    height="88"
-                    rx="10"
-                    fill="#F3F6FD"
-                    stroke="#9DB8EE"
-                    stroke-width="2"
-                  />
-                  <rect
-                    x="39"
-                    y="25"
-                    width="110"
-                    height="72"
-                    rx="5"
-                    fill="#E5EEFF"
-                  />
+                  <rect x="31" y="17" width="126" height="88" rx="10" fill="#F3F6FD" stroke="#9DB8EE"
+                    stroke-width="2" />
+                  <rect x="39" y="25" width="110" height="72" rx="5" fill="#E5EEFF" />
                   <path
                     d="M19 110.5C19 107.462 21.4624 105 24.5 105H163.5C166.538 105 169 107.462 169 110.5V112C169 118.075 164.075 123 158 123H30C23.9249 123 19 118.075 19 112V110.5Z"
-                    fill="#C9D9F8"
-                    stroke="#7E9FD9"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M84 111H104"
-                    stroke="#8AA5D4"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
+                    fill="#C9D9F8" stroke="#7E9FD9" stroke-width="2" />
+                  <path d="M84 111H104" stroke="#8AA5D4" stroke-width="3" stroke-linecap="round" />
                   <g class="services-shield-float">
-                    <path
-                      d="M94 37L119 46V64C119 79.5 108.5 88.5 94 94C79.5 88.5 69 79.5 69 64V46L94 37Z"
-                      fill="#2563EB"
-                    />
-                    <path
-                      d="M83 64L91 72L106 56"
-                      stroke="white"
-                      stroke-width="4"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                    <path d="M94 37L119 46V64C119 79.5 108.5 88.5 94 94C79.5 88.5 69 79.5 69 64V46L94 37Z"
+                      fill="#2563EB" />
+                    <path d="M83 64L91 72L106 56" stroke="white" stroke-width="4" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </g>
                   <g class="services-badge-float">
                     <circle cx="165" cy="32" r="16" fill="#DBEAFE" />
-                    <path
-                      d="M165 23L174 26.5V33C174 38.5 170.2 41.7 165 44C159.8 41.7 156 38.5 156 33V26.5L165 23Z"
-                      fill="#2563EB"
-                    />
-                    <path
-                      d="M161.5 32.5L164 35L168.5 30"
-                      stroke="white"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                    <path d="M165 23L174 26.5V33C174 38.5 170.2 41.7 165 44C159.8 41.7 156 38.5 156 33V26.5L165 23Z"
+                      fill="#2563EB" />
+                    <path d="M161.5 32.5L164 35L168.5 30" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </g>
                 </g>
-                <circle
-                  class="services-art-spark spark-one"
-                  cx="27"
-                  cy="43"
-                  r="3"
-                  fill="#60A5FA"
-                />
-                <circle
-                  class="services-art-spark spark-two"
-                  cx="174"
-                  cy="77"
-                  r="2.5"
-                  fill="#93C5FD"
-                />
-                <path
-                  class="services-art-cross"
-                  d="M24 70H32M28 66V74"
-                  stroke="#60A5FA"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
+                <circle class="services-art-spark spark-one" cx="27" cy="43" r="3" fill="#60A5FA" />
+                <circle class="services-art-spark spark-two" cx="174" cy="77" r="2.5" fill="#93C5FD" />
+                <path class="services-art-cross" d="M24 70H32M28 66V74" stroke="#60A5FA" stroke-width="2"
+                  stroke-linecap="round" />
               </svg>
             </div>
           </div>
 
           <div class="services-grid">
-            <article
-              v-for="service in services"
-              :key="service.number"
-              class="service-item reveal-on-scroll"
-            >
+            <article v-for="service in services" :key="service.number" class="service-item reveal-on-scroll">
               <div class="service-card-heading">
                 <div class="service-icon-box">
-                  <component
-                    :is="service.icon"
-                    class="service-icon"
-                    :size="20"
-                    aria-hidden="true"
-                  />
+                  <component :is="service.icon" class="service-icon" :size="20" aria-hidden="true" />
                 </div>
                 <span class="service-number">{{ service.number }}</span>
               </div>
               <p class="service-kicker">{{ service.title }}</p>
               <h3>{{ service.headline }}</h3>
               <p class="service-description">{{ service.summary }}</p>
-              <a
-                class="service-explore"
-                :href="`${baseUrl}services/${service.slug}`"
-              >
+              <a class="service-explore" :href="`${baseUrl}services/${service.slug}`">
                 Explore Service
                 <IconArrowRight :size="16" aria-hidden="true" />
               </a>
@@ -386,13 +271,10 @@
             </div>
             <div class="team-sport-copy">
               <div class="team-sport-principles">
-                <p
-                  v-for="paragraph in securityPositioning.paragraphs.slice(
-                    0,
-                    3,
-                  )"
-                  :key="paragraph"
-                >
+                <p v-for="paragraph in securityPositioning.paragraphs.slice(
+                  0,
+                  3,
+                )" :key="paragraph">
                   {{ paragraph }}
                 </p>
               </div>
@@ -422,11 +304,7 @@
               </p>
             </div>
             <div class="security-layers">
-              <article
-                v-for="(layer, index) in securityLayers"
-                :key="layer.dimension"
-                class="security-layer"
-              >
+              <article v-for="(layer, index) in securityLayers" :key="layer.dimension" class="security-layer">
                 <span class="security-layer-number">0{{ index + 1 }}</span>
                 <p class="security-layer-dimension">{{ layer.dimension }}</p>
                 <h3 class="font-medium">{{ layer.service }}</h3>
@@ -469,32 +347,17 @@
 
             <div class="form-field">
               <label for="contact-name">Name</label>
-              <InputText
-                id="contact-name"
-                v-model="form.name"
-                autocomplete="name"
-                placeholder="Your name"
-              />
+              <InputText id="contact-name" v-model="form.name" autocomplete="name" placeholder="Your name" />
             </div>
             <div class="form-field">
-              <label for="contact-email">Work email</label>
-              <InputText
-                id="contact-email"
-                v-model="form.email"
-                type="email"
-                autocomplete="email"
-                placeholder="you@company.com"
-              />
+              <label for="contact-email">Work Email</label>
+              <InputText id="contact-email" v-model="form.email" type="email" autocomplete="email"
+                placeholder="you@company.com" />
             </div>
             <div class="form-field">
               <label for="contact-service">What do you need help with?</label>
-              <Select
-                input-id="contact-service"
-                v-model="form.service"
-                :options="serviceOptions"
-                placeholder="Select a service"
-                append-to="self"
-              >
+              <Select input-id="contact-service" v-model="form.service" :options="serviceOptions"
+                placeholder="Select a service" append-to="self">
                 <template #dropdownicon>
                   <IconChevronDown :size="16" aria-hidden="true" />
                 </template>
@@ -502,19 +365,11 @@
             </div>
             <div class="form-field">
               <label for="contact-message">Message</label>
-              <Textarea
-                id="contact-message"
-                v-model="form.message"
-                rows="4"
-                placeholder="Tell us a little about what you need."
-              />
+              <Textarea id="contact-message" v-model="form.message" rows="4"
+                placeholder="Tell us a little about what you need." />
             </div>
             <div class="form-actions">
-              <Button
-                type="submit"
-                label="Continue with Email"
-                class="form-submit"
-              >
+              <Button type="submit" label="Continue with Email" class="form-submit">
                 <template #icon>
                   <IconMail :size="17" aria-hidden="true" />
                 </template>
@@ -523,7 +378,7 @@
             <p class="form-privacy">
               <IconLock :size="13" aria-hidden="true" />
               Email opens in your mail app. Review and send it to submit your
-              enquiry.
+              inquiry.
             </p>
           </form>
         </div>
@@ -584,9 +439,9 @@ const baseUrl = import.meta.env.BASE_URL;
 const activeSection = ref("home");
 const isDark = ref(
   typeof window !== "undefined" &&
-    (window.localStorage.getItem("ot9-theme") === "dark" ||
-      (!window.localStorage.getItem("ot9-theme") &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)),
+  (window.localStorage.getItem("ot9-theme") === "dark" ||
+    (!window.localStorage.getItem("ot9-theme") &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)),
 );
 const currentYear = new Date().getFullYear();
 let revealObserver;
@@ -911,13 +766,11 @@ onBeforeUnmount(() => {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M48 0H0V48' fill='none' stroke='%2396a9cc' stroke-opacity='.28' stroke-width='1'/%3E%3C/svg%3E");
   background-position: center top;
   background-size: 48px 48px;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 18%,
-    #000 82%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 18%,
+      #000 82%,
+      transparent 100%);
 }
 
 .hero-grid {
@@ -943,7 +796,7 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
 }
 
-.eyebrow > span {
+.eyebrow>span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -1204,12 +1057,10 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0 auto 0 -55%;
   width: 45%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgb(255 255 255 / 68%),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgb(255 255 255 / 68%),
+      transparent);
   content: "";
   animation: progress-shimmer 2.1s ease-in-out 1.4s infinite;
 }
@@ -1338,7 +1189,7 @@ onBeforeUnmount(() => {
   padding-left: 0;
 }
 
-.pillar + .pillar {
+.pillar+.pillar {
   border-left: 1px solid #e2e7f0;
 }
 
@@ -1476,7 +1327,7 @@ onBeforeUnmount(() => {
   letter-spacing: -0.065em;
 }
 
-.section-heading > p:last-child {
+.section-heading>p:last-child {
   margin: 1rem 0 0;
   color: #69758b;
   font-size: 0.94rem;
@@ -1602,7 +1453,7 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
 }
 
-.security-layers-heading > p:last-child {
+.security-layers-heading>p:last-child {
   margin: 1rem 0 0;
   color: var(--soft-text);
   font-size: 0.9rem;
@@ -1660,7 +1511,7 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
 }
 
-.security-layer > p:last-child {
+.security-layer>p:last-child {
   margin-top: 0.45rem !important;
   font-size: 0.7rem !important;
 }
@@ -1835,7 +1686,7 @@ onBeforeUnmount(() => {
   font-size: clamp(2.5rem, 4.5vw, 4rem);
 }
 
-.contact-copy > p:not(.eyebrow) {
+.contact-copy>p:not(.eyebrow) {
   max-width: 480px;
   margin: 1.35rem 0 0;
   color: #c2cce0;
@@ -1997,7 +1848,7 @@ onBeforeUnmount(() => {
   font-size: 1.35rem;
 }
 
-.footer-inner > p {
+.footer-inner>p {
   margin: 0;
   color: #808ba0;
   font-size: 0.7rem;
@@ -2075,6 +1926,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes card-float {
+
   0%,
   100% {
     translate: 0 0;
@@ -2086,6 +1938,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes laptop-hover {
+
   0%,
   100% {
     transform: translateY(0);
@@ -2097,6 +1950,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes shield-hover {
+
   0%,
   100% {
     transform: translateY(0) scale(1);
@@ -2108,6 +1962,7 @@ onBeforeUnmount(() => {
 }
 
 @keyframes spark-pulse {
+
   0%,
   100% {
     opacity: 0.55;
@@ -2184,9 +2039,7 @@ onBeforeUnmount(() => {
   background: #1a2b4c;
 }
 
-.site-shell.is-dark
-  .site-menubar
-  :deep(.p-menubar-item.is-current .p-menubar-item-link) {
+.site-shell.is-dark .site-menubar :deep(.p-menubar-item.is-current .p-menubar-item-link) {
   color: #9fc0ff;
   background: #1a2e52;
 }
@@ -2210,7 +2063,7 @@ onBeforeUnmount(() => {
 }
 
 .site-shell.is-dark .hero-description,
-.site-shell.is-dark .section-heading > p:last-child,
+.site-shell.is-dark .section-heading>p:last-child,
 .site-shell.is-dark .service-item p,
 .site-shell.is-dark .pillar p {
   color: var(--soft-text);
@@ -2225,8 +2078,8 @@ onBeforeUnmount(() => {
   border-color: var(--line);
 }
 
-.site-shell.is-dark .pillar + .pillar,
-.site-shell.is-dark .pillar + .pillar::before {
+.site-shell.is-dark .pillar+.pillar,
+.site-shell.is-dark .pillar+.pillar::before {
   border-color: #29364d;
 }
 
@@ -2319,11 +2172,7 @@ onBeforeUnmount(() => {
   background: #121f37;
 }
 
-.site-shell.is-dark
-  .form-field
-  :deep(
-    .p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus
-  ) {
+.site-shell.is-dark .form-field :deep(.p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus) {
   color: #fff;
   background: #1b2a47;
 }
@@ -2341,7 +2190,7 @@ onBeforeUnmount(() => {
   background: #0b1428;
 }
 
-.site-shell.is-dark .footer-inner > p {
+.site-shell.is-dark .footer-inner>p {
   color: #aab6ce;
 }
 
@@ -2535,7 +2384,7 @@ onBeforeUnmount(() => {
     padding: 1rem 0;
   }
 
-  .pillar + .pillar {
+  .pillar+.pillar {
     border-top: 1px solid #e2e7f0;
     border-left: 0;
   }
@@ -2587,7 +2436,7 @@ onBeforeUnmount(() => {
     min-height: 78px;
   }
 
-  .footer-inner > p {
+  .footer-inner>p {
     text-align: right;
     font-size: 0.62rem;
   }

@@ -5,12 +5,11 @@
         <span class="wordmark-main">OT<span>9</span></span>
         <span class="wordmark-sub">LABS</span>
       </a>
-      <nav aria-label="Main navigation">
-        <a :href="baseUrl">Home</a>
-        <a :href="`${baseUrl}services`" aria-current="page">Services</a>
-        <a :href="`${baseUrl}#approach`">Approach</a>
-        <a :href="`${baseUrl}#contact`">Contact</a>
-      </nav>
+      <Menubar :model="navigation" class="services-menubar" aria-label="Main navigation">
+        <template #buttonicon>
+          <IconMenu2 :size="20" aria-hidden="true" />
+        </template>
+      </Menubar>
       <a class="email-link" href="mailto:nyx@ot9labs.com">Email Us</a>
     </header>
 
@@ -114,9 +113,11 @@
 </template>
 
 <script setup>
+import Menubar from 'primevue/menubar'
 import {
   IconArrowRight,
   IconCircleCheck,
+  IconMenu2,
   IconShield,
   IconTarget,
   IconUsersGroup,
@@ -128,6 +129,13 @@ import {
 } from '@/data/homepageServices'
 
 const baseUrl = import.meta.env.BASE_URL
+const navigation = [
+  { label: 'Home', url: `${baseUrl}#home` },
+  { label: 'About Us', url: `${baseUrl}#about` },
+  { label: 'Services', url: `${baseUrl}services`, class: 'is-current' },
+  { label: 'Team Sport', url: `${baseUrl}#team-sport` },
+  { label: 'Contact', url: `${baseUrl}#contact` },
+]
 </script>
 
 <style scoped>
@@ -144,12 +152,17 @@ const baseUrl = import.meta.env.BASE_URL
 }
 
 .services-header {
-  min-height: 78px;
-  display: flex;
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  min-height: 78px;
+  gap: 2rem;
+  background: rgb(255 255 255 / 92%);
   border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(16px);
 }
 
 .wordmark {
@@ -178,12 +191,57 @@ const baseUrl = import.meta.env.BASE_URL
   letter-spacing: 0.24em;
 }
 
-.services-header nav {
-  display: flex;
-  gap: 1.4rem;
+.services-menubar {
+  border: 0;
+  padding: 0;
+  background: transparent;
 }
 
-.services-header nav a,
+.services-menubar :deep(.p-menubar-root-list) {
+  gap: 0.2rem;
+}
+
+.services-menubar :deep(.p-menubar-item-link) {
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  color: #42506c;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.services-menubar :deep(.p-menubar-item-link:hover),
+.services-menubar :deep(.p-menubar-button:hover) {
+  color: var(--brand);
+  background: #f3f6fd;
+}
+
+.services-menubar :deep(.p-menubar-item.is-current .p-menubar-item-link) {
+  position: relative;
+  color: var(--brand);
+  background: #e8f0ff;
+  font-weight: 800;
+}
+
+.services-menubar :deep(.p-menubar-item.is-current .p-menubar-item-link)::after {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.32rem;
+  left: 0.9rem;
+  height: 3px;
+  border-radius: 2px;
+  background: currentColor;
+  content: "";
+}
+
+.email-link {
+  justify-self: end;
+}
+
+.services-menubar :deep(.p-menubar-button) {
+  color: var(--ink);
+}
+
 .email-link {
   color: var(--ink);
   font-size: 0.82rem;
@@ -200,7 +258,7 @@ const baseUrl = import.meta.env.BASE_URL
 .service-heading p,
 .service-section h3,
 .service-outcome span,
-.layer-card > p {
+.layer-card>p {
   color: var(--brand);
   font-size: 0.72rem;
   font-weight: 800;
@@ -220,7 +278,7 @@ const baseUrl = import.meta.env.BASE_URL
   text-transform: uppercase;
 }
 
-.services-hero > p:not(.eyebrow) {
+.services-hero>p:not(.eyebrow) {
   max-width: 800px;
   margin: 1.15rem 0 0;
   color: var(--muted);
@@ -266,8 +324,8 @@ const baseUrl = import.meta.env.BASE_URL
   margin: 0;
 }
 
-.service-content > h2,
-.security-layers-section > h2 {
+.service-content>h2,
+.security-layers-section>h2 {
   margin: 0.8rem 0 0;
   font-size: clamp(1.8rem, 3.4vw, 2.9rem);
   letter-spacing: -0.055em;
@@ -277,9 +335,9 @@ const baseUrl = import.meta.env.BASE_URL
 
 .service-intro,
 .service-description,
-.service-section > p,
-.team-sport > p:not(.eyebrow),
-.security-layers-section > p:not(.eyebrow) {
+.service-section>p,
+.team-sport>p:not(.eyebrow),
+.security-layers-section>p:not(.eyebrow) {
   max-width: 860px;
   color: var(--muted);
   font-size: 0.92rem;
@@ -305,7 +363,7 @@ const baseUrl = import.meta.env.BASE_URL
   margin: 0;
 }
 
-.service-section > p {
+.service-section>p {
   margin: 0.65rem 0 0;
 }
 
@@ -479,7 +537,7 @@ const baseUrl = import.meta.env.BASE_URL
   color: #b9c6dd !important;
 }
 
-.security-layers-section > p:not(.eyebrow) {
+.security-layers-section>p:not(.eyebrow) {
   margin: 0.8rem 0 0;
 }
 
@@ -499,7 +557,7 @@ const baseUrl = import.meta.env.BASE_URL
   background: #fff;
 }
 
-.layer-card > p {
+.layer-card>p {
   margin: 0;
   font-size: 0.62rem;
 }
@@ -525,17 +583,33 @@ const baseUrl = import.meta.env.BASE_URL
   }
 }
 
+@media (max-width: 960px) {
+  .services-header {
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
+    padding-block: 0.65rem 0;
+  }
+
+  .services-menubar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin-top: -0.2rem;
+  }
+
+  .services-menubar :deep(.p-menubar-root-list) {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 16px 32px rgb(10 26 69 / 10%);
+  }
+}
+
 @media (max-width: 640px) {
   .services-header {
-    min-height: 70px;
-    gap: 0.5rem;
+    min-height: 0;
   }
 
-  .services-header nav {
-    gap: 0.55rem;
-  }
-
-  .services-header nav a,
   .email-link {
     font-size: 0.68rem;
   }
