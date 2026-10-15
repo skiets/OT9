@@ -362,7 +362,7 @@
                 class="service-explore"
                 :href="`${baseUrl}services/${service.slug}`"
               >
-                Explore service
+                Explore Service
                 <IconArrowRight :size="16" aria-hidden="true" />
               </a>
             </article>
