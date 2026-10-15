@@ -11,7 +11,7 @@
         <a :href="`${baseUrl}#approach`">Approach</a>
         <a :href="`${baseUrl}#contact`">Contact</a>
       </nav>
-      <a class="email-link" href="mailto:mac@ot9labs.com">Email us</a>
+      <a class="email-link" href="mailto:nyx@ot9labs.com">Email Us</a>
     </header>
 
     <main>
