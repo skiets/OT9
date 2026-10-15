@@ -45,25 +45,57 @@
       <section class="detail-hero">
         <div class="detail-grid" aria-hidden="true"></div>
         <div class="detail-container detail-hero-inner">
-          <a class="back-link" :href="`${baseUrl}#services`">
-            <IconArrowLeft :size="16" aria-hidden="true" />
-            All Services
-          </a>
-          <div class="detail-intro">
-            <div class="detail-icon">
-              <component :is="service.icon" :size="27" aria-hidden="true" />
+          <div class="detail-hero-copy">
+            <a class="back-link" :href="`${baseUrl}#services`">
+              <IconArrowLeft :size="16" aria-hidden="true" />
+              All Services
+            </a>
+            <div class="detail-intro">
+              <div class="detail-icon">
+                <component :is="service.icon" :size="27" aria-hidden="true" />
+              </div>
+              <p class="detail-kicker">
+                {{ service.number }} / {{ service.title }}
+              </p>
             </div>
-            <p class="detail-kicker">
-              {{ service.number }} / {{ service.title }}
-            </p>
+            <h1>{{ service.headline }}</h1>
+            <p class="detail-lead">{{ service.intro }}</p>
+            <p class="detail-description">{{ service.description }}</p>
+            <a class="detail-primary-link" :href="`${baseUrl}#contact`">
+              Talk to Our Team
+              <IconArrowRight :size="17" aria-hidden="true" />
+            </a>
           </div>
-          <h1>{{ service.headline }}</h1>
-          <p class="detail-lead">{{ service.intro }}</p>
-          <p class="detail-description">{{ service.description }}</p>
-          <a class="detail-primary-link" :href="`${baseUrl}#contact`">
-            Talk to Our Team
-            <IconArrowRight :size="17" aria-hidden="true" />
-          </a>
+
+          <aside class="service-brief" aria-label="Service overview">
+            <div class="brief-emblem" aria-hidden="true">
+              <span class="brief-orbit brief-orbit-one"></span>
+              <span class="brief-orbit brief-orbit-two"></span>
+              <div class="brief-icon">
+                <component :is="service.icon" :size="31" />
+              </div>
+              <span class="brief-number">{{ service.number }}</span>
+            </div>
+            <div class="brief-heading">
+              <p>OT9 SERVICE BRIEF</p>
+              <h2>{{ service.title }}</h2>
+            </div>
+            <div class="brief-divider"></div>
+            <p class="brief-list-label">INSIDE THIS SERVICE</p>
+            <ul class="brief-sections">
+              <li v-for="section in service.sections" :key="section.label">
+                <span>{{ section.label }}</span>
+                <span class="brief-section-count">
+                  {{
+                    section.items
+                      ? `${section.items.length} AREAS`
+                      : `${section.flow.length} STEPS`
+                  }}
+                </span>
+              </li>
+            </ul>
+            <span class="brief-index">OT9 / {{ service.number }}</span>
+          </aside>
         </div>
       </section>
 
@@ -74,21 +106,30 @@
         :class="{ 'detail-content-muted': index % 2 === 1 }"
       >
         <div class="detail-container">
-          <div class="detail-section-heading">
-            <p class="detail-label">{{ section.label }}</p>
-            <p v-if="section.intro">{{ section.intro }}</p>
+          <div class="detail-section-top">
+            <span class="detail-section-number" aria-hidden="true">
+              {{ String(index + 1).padStart(2, "0") }}
+            </span>
+            <div class="detail-section-heading">
+              <p class="detail-label">{{ section.label }}</p>
+              <p v-if="section.intro">{{ section.intro }}</p>
+            </div>
           </div>
           <ul v-if="section.items" class="detail-check-grid">
             <li v-for="item in section.items" :key="item">
               <IconCircleCheck :size="19" aria-hidden="true" />
-              {{ item }}
+              <span>{{ item }}</span>
             </li>
           </ul>
           <ol v-if="section.flow" class="service-flow">
             <li v-for="(step, index) in section.flow" :key="step">
-              <span>{{ step }}</span>
+              <span class="flow-step-number">
+                {{ String(index + 1).padStart(2, "0") }}
+              </span>
+              <span class="flow-step-label">{{ step }}</span>
               <IconArrowRight
                 v-if="index < section.flow.length - 1"
+                class="flow-step-arrow"
                 :size="16"
                 aria-hidden="true"
               />
@@ -100,8 +141,13 @@
       <section class="detail-content">
         <div class="detail-container">
           <div class="detail-outcome">
-            <span>THE OUTCOME</span>
-            <p>{{ service.outcome }}</p>
+            <span class="outcome-icon" aria-hidden="true">
+              <IconCircleCheck :size="23" />
+            </span>
+            <div class="outcome-copy">
+              <span class="outcome-kicker">THE OUTCOME</span>
+              <p>{{ service.outcome }}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -310,13 +356,17 @@ function toggleTheme() {
 
 .detail-hero {
   position: relative;
-  background: linear-gradient(180deg, #e8eefb 0%, #f5f7fc 100%);
-  padding: 4rem 0 3rem;
+  background:
+    radial-gradient(ellipse at 82% 34%, rgb(96 165 250 / 16%), transparent 34%),
+    linear-gradient(135deg, #eef3fc 0%, #f8faff 54%, #edf3ff 100%);
+  padding: 4rem 0 4.5rem;
   overflow: hidden;
 }
 
 .service-page.is-dark .detail-hero {
-  background: linear-gradient(180deg, #111d35 0%, #0b1428 100%);
+  background:
+    radial-gradient(ellipse at 82% 34%, rgb(37 99 235 / 20%), transparent 34%),
+    linear-gradient(135deg, #111d35 0%, #0b1428 54%, #101d38 100%);
 }
 
 .detail-grid {
@@ -342,7 +392,14 @@ function toggleTheme() {
 }
 
 .detail-hero-inner {
-  max-width: 820px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.detail-hero-copy {
+  max-width: 760px;
 }
 
 .back-link {
@@ -352,6 +409,11 @@ function toggleTheme() {
   color: var(--brand);
   text-decoration: none;
   font-weight: 700;
+  transition: gap 180ms ease;
+}
+
+.back-link:hover {
+  gap: 0.75rem;
 }
 
 .detail-intro {
@@ -387,6 +449,7 @@ function toggleTheme() {
   line-height: 1.06;
   letter-spacing: -0.07em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .detail-lead {
@@ -416,14 +479,190 @@ function toggleTheme() {
   color: white;
   text-decoration: none;
   font-weight: 700;
+  box-shadow: 0 10px 24px rgb(37 99 235 / 22%);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.detail-primary-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgb(37 99 235 / 30%);
+}
+
+.service-brief {
+  position: relative;
+  min-height: 380px;
+  padding: 1.6rem;
+  overflow: hidden;
+  border: 1px solid rgb(148 163 184 / 24%);
+  border-radius: 1.25rem;
+  background: rgb(255 255 255 / 72%);
+  box-shadow:
+    0 24px 70px rgb(20 45 92 / 10%),
+    inset 0 1px rgb(255 255 255 / 85%);
+  backdrop-filter: blur(16px);
+}
+
+.service-brief::before {
+  position: absolute;
+  top: -5.5rem;
+  right: -5rem;
+  width: 14rem;
+  height: 14rem;
+  border: 1px solid rgb(37 99 235 / 12%);
+  border-radius: 50%;
+  content: "";
+}
+
+.service-page.is-dark .service-brief {
+  border-color: rgb(148 163 184 / 18%);
+  background: rgb(17 29 53 / 76%);
+  box-shadow:
+    0 24px 70px rgb(0 0 0 / 22%),
+    inset 0 1px rgb(255 255 255 / 5%);
+}
+
+.brief-emblem {
+  position: relative;
+  display: grid;
+  width: 8.3rem;
+  height: 8.3rem;
+  place-items: center;
+  margin: 0 auto 1.4rem;
+}
+
+.brief-orbit {
+  position: absolute;
+  inset: 0.2rem;
+  border: 1px solid rgb(37 99 235 / 22%);
+  border-radius: 50%;
+}
+
+.brief-orbit-one {
+  transform: rotate(-25deg) scaleX(0.72);
+}
+
+.brief-orbit-two {
+  transform: rotate(35deg) scaleX(0.72);
+}
+
+.brief-icon {
+  z-index: 1;
+  display: grid;
+  width: 4.2rem;
+  height: 4.2rem;
+  place-items: center;
+  border: 1px solid rgb(37 99 235 / 22%);
+  border-radius: 1.3rem;
+  background: linear-gradient(145deg, rgb(255 255 255 / 92%), #e4edff);
+  color: var(--brand);
+  box-shadow: 0 10px 30px rgb(37 99 235 / 14%);
+}
+
+.service-page.is-dark .brief-icon {
+  background: linear-gradient(145deg, #1a2c4e, #12203a);
+}
+
+.brief-number {
+  position: absolute;
+  right: 0.15rem;
+  bottom: 0.7rem;
+  color: rgb(37 99 235 / 28%);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.brief-heading p,
+.brief-list-label {
+  margin: 0;
+  color: var(--brand);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.brief-heading h2 {
+  margin: 0.45rem 0 0;
+  color: var(--ink);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.brief-divider {
+  height: 1px;
+  margin: 1.15rem 0;
+  background: linear-gradient(90deg, rgb(37 99 235 / 36%), transparent);
+}
+
+.brief-sections {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0.8rem 0 1.3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.brief-sections li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.brief-section-count {
+  flex: none;
+  color: var(--soft-text);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.brief-index {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.25rem;
+  color: var(--soft-text);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .detail-content {
-  padding: 4rem 0;
+  position: relative;
+  padding: 4.5rem 0;
+}
+
+.detail-section-top {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  max-width: 820px;
 }
 
 .detail-section-heading {
   max-width: 720px;
+}
+
+.detail-section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgb(37 99 235 / 20%);
+  border-radius: 1rem;
+  background: rgb(37 99 235 / 7%);
+  color: var(--brand);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .detail-label {
@@ -435,47 +674,70 @@ function toggleTheme() {
   font-weight: 800;
 }
 
-.detail-section-heading h2 {
-  margin: 0;
-  font-size: clamp(2rem, 3vw, 3rem);
-  letter-spacing: -0.06em;
-  text-transform: uppercase;
+.detail-section-heading > .detail-label {
+  margin: 0 0 0.7rem;
 }
 
-.detail-section-heading p {
+.detail-section-heading > p:not(.detail-label) {
   margin: 0.9rem 0 0;
   color: var(--soft-text);
   line-height: 1.8;
 }
 
 .service-flow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  align-items: stretch;
+  gap: 0.85rem;
   list-style: none;
-  margin: 2rem 0 0;
+  margin: 2rem 0 0 4.5rem;
   padding: 0;
 }
 
 .service-flow li {
   display: flex;
   align-items: center;
+  min-width: 0;
+  min-height: 5rem;
   gap: 0.8rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgb(148 163 184 / 20%);
+  border-radius: 0.8rem;
+  background: var(--page);
+  box-shadow: 0 7px 20px rgb(20 45 92 / 5%);
 }
 
-.service-flow li > span {
-  padding: 0.75rem 0.95rem;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 10px;
-  background: rgba(37, 99, 235, 0.08);
+.flow-step-number {
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid rgb(37 99 235 / 22%);
+  border-radius: 0.55rem;
+  background: rgb(37 99 235 / 8%);
+  color: var(--brand);
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.flow-step-label {
+  min-width: 0;
   color: var(--ink);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.05em;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
-.service-flow svg {
+.flow-step-arrow {
+  flex: none;
+  margin-left: auto;
+  padding: 0.25rem;
+  box-sizing: content-box;
+  border-radius: 50%;
+  background: rgb(37 99 235 / 9%);
   color: var(--brand);
 }
 
@@ -485,23 +747,37 @@ function toggleTheme() {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.85rem;
+  margin-left: 4.5rem;
 }
 
 .detail-check-grid li {
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
-  background: rgba(15, 23, 42, 0.03);
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 14px;
+  background: var(--page);
+  border: 1px solid rgb(148 163 184 / 20%);
+  border-radius: 12px;
   padding: 1rem 1.2rem;
   color: var(--ink);
+  line-height: 1.55;
+  box-shadow: 0 8px 22px rgb(20 45 92 / 4%);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.detail-check-grid li:hover {
+  transform: translateY(-2px);
+  border-color: rgb(37 99 235 / 32%);
+  box-shadow: 0 12px 28px rgb(20 45 92 / 9%);
 }
 
 .service-page.is-dark .detail-check-grid li {
-  background: rgba(15, 23, 42, 0.4);
-  border-color: rgba(148, 163, 184, 0.18);
+  background: #101b31;
+  border-color: rgb(148 163 184 / 16%);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 10%);
 }
 
 .detail-check-grid svg {
@@ -510,29 +786,68 @@ function toggleTheme() {
 }
 
 .detail-outcome {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
   margin-top: 2rem;
-  padding: 1.5rem 1.4rem;
+  padding: 2rem 2.25rem;
+  border: 1px solid rgb(148 163 184 / 20%);
   border-left: 3px solid var(--brand);
-  border-radius: 12px;
-  background: var(--mist);
+  border-radius: 1rem;
+  background: var(--page);
+  box-shadow: 0 10px 30px rgb(20 45 92 / 5%);
 }
 
-.detail-outcome span {
+.outcome-copy {
+  max-width: 740px;
+}
+
+.outcome-icon {
+  display: grid;
+  width: 3.1rem;
+  height: 3.1rem;
+  place-items: center;
+  border: 1px solid rgb(37 99 235 / 18%);
+  border-radius: 0.9rem;
+  background: rgb(37 99 235 / 8%);
+  color: var(--brand);
+}
+
+.outcome-kicker {
+  display: block;
+  color: var(--brand);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--brand);
   font-weight: 800;
 }
 
 .detail-outcome p {
+  margin: 0.65rem 0 0;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+  line-height: 1.4;
+  letter-spacing: -0.035em;
   font-weight: 700;
+  text-wrap: balance;
 }
 
-.detail-outcome p {
-  margin: 0.7rem 0 0;
-  color: var(--soft-text);
-  line-height: 1.8;
+.service-page.is-dark .detail-outcome {
+  border-color: rgb(148 163 184 / 16%);
+  border-left-color: #60a5fa;
+  background: #101b31;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 12%);
+}
+
+.service-page.is-dark .outcome-icon {
+  border-color: rgb(96 165 250 / 24%);
+  background: rgb(37 99 235 / 14%);
+  color: #93c5fd;
+}
+
+.service-page.is-dark .outcome-kicker {
+  color: #93c5fd;
 }
 
 .attack-stages {
@@ -609,6 +924,16 @@ function toggleTheme() {
 }
 
 @media (max-width: 900px) {
+  .detail-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .service-brief {
+    width: min(100%, 480px);
+    min-height: auto;
+    justify-self: center;
+  }
+
   .detail-check-grid,
   .attack-stages {
     grid-template-columns: 1fr 1fr;
@@ -635,11 +960,78 @@ function toggleTheme() {
   }
 
   .detail-hero {
-    padding-top: 3rem;
+    padding: 3rem 0;
+  }
+
+  .detail-hero-inner {
+    gap: 2.5rem;
+  }
+
+  .detail-section-top {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .detail-section-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.8rem;
+  }
+
+  .detail-check-grid,
+  .service-flow {
+    margin-left: 3.5rem;
+  }
+
+  .detail-content {
+    padding: 3.25rem 0;
   }
 
   .detail-intro {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .detail-check-grid,
+  .service-flow {
+    margin-left: 0;
+  }
+
+  .service-flow li {
+    gap: 0.6rem;
+  }
+
+  .flow-step-label {
+    font-size: 0.68rem;
+  }
+
+  .service-brief {
+    padding: 1.25rem;
+  }
+
+  .detail-outcome {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 0.85rem;
+    padding: 1.25rem;
+  }
+
+  .outcome-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .brief-sections li {
+    font-size: 0.62rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-link,
+  .detail-primary-link,
+  .detail-check-grid li {
+    transition: none;
   }
 }
 </style>
