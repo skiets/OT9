@@ -1,5 +1,9 @@
 <template>
-  <div v-if="service" class="service-page" :class="{ 'is-dark': isDark, dark: isDark }">
+  <div
+    v-if="service"
+    class="service-page"
+    :class="{ 'is-dark': isDark, dark: isDark }"
+  >
     <header class="detail-header">
       <div class="detail-header-inner">
         <a class="wordmark" :href="baseUrl" aria-label="OT9 Labs home">
@@ -7,15 +11,25 @@
           <span class="wordmark-sub">LABS</span>
         </a>
 
-        <Menubar :model="navigation" class="detail-menubar" aria-label="Main navigation">
+        <Menubar
+          :model="navigation"
+          class="detail-menubar"
+          aria-label="Main navigation"
+        >
           <template #buttonicon>
             <IconMenu2 :size="20" aria-hidden="true" />
           </template>
         </Menubar>
 
         <div class="detail-actions">
-          <button class="theme-toggle" type="button"
-            :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'" @click="toggleTheme">
+          <button
+            class="theme-toggle"
+            type="button"
+            :aria-label="
+              isDark ? 'Switch to light mode' : 'Switch to dark mode'
+            "
+            @click="toggleTheme"
+          >
             <IconSun v-if="isDark" :size="19" aria-hidden="true" />
             <IconMoon v-else :size="19" aria-hidden="true" />
           </button>
@@ -39,13 +53,15 @@
             <div class="detail-icon">
               <component :is="service.icon" :size="27" aria-hidden="true" />
             </div>
-            <p class="detail-kicker">{{ service.number }} / {{ service.title }}</p>
+            <p class="detail-kicker">
+              {{ service.number }} / {{ service.title }}
+            </p>
           </div>
           <h1>{{ service.headline }}</h1>
           <p class="detail-lead">{{ service.intro }}</p>
           <p class="detail-description">{{ service.description }}</p>
           <a class="detail-primary-link" :href="`${baseUrl}#contact`">
-            Talk to our team
+            Talk to our Team
             <IconArrowRight :size="17" aria-hidden="true" />
           </a>
         </div>
@@ -71,7 +87,11 @@
           <ol v-if="section.flow" class="service-flow">
             <li v-for="(step, index) in section.flow" :key="step">
               <span>{{ step }}</span>
-              <IconArrowRight v-if="index < section.flow.length - 1" :size="16" aria-hidden="true" />
+              <IconArrowRight
+                v-if="index < section.flow.length - 1"
+                :size="16"
+                aria-hidden="true"
+              />
             </li>
           </ol>
         </div>
@@ -90,9 +110,9 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import Menubar from 'primevue/menubar'
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
+import Menubar from "primevue/menubar";
 import {
   IconArrowLeft,
   IconArrowRight,
@@ -101,33 +121,33 @@ import {
   IconMenu2,
   IconMoon,
   IconSun,
-} from '@tabler/icons-vue'
-import { services } from '@/data/homepageServices'
+} from "@tabler/icons-vue";
+import { services } from "@/data/homepageServices";
 
-const route = useRoute()
-const baseUrl = import.meta.env.BASE_URL
+const route = useRoute();
+const baseUrl = import.meta.env.BASE_URL;
 const navigation = [
-  { label: 'Home', url: `${baseUrl}#home` },
-  { label: 'About Us', url: `${baseUrl}#about` },
-  { label: 'Services', url: `${baseUrl}#services`, class: 'is-current' },
-  { label: 'Team Sport', url: `${baseUrl}#team-sport` },
-  { label: 'Contact', url: `${baseUrl}#contact` },
-]
+  { label: "Home", url: `${baseUrl}#home` },
+  { label: "About Us", url: `${baseUrl}#about` },
+  { label: "Services", url: `${baseUrl}#services`, class: "is-current" },
+  { label: "Team Sport", url: `${baseUrl}#team-sport` },
+  { label: "Contact", url: `${baseUrl}#contact` },
+];
 const isDark = ref(
-  typeof window !== 'undefined' &&
-    (window.localStorage.getItem('ot9-theme') === 'dark' ||
-      (!window.localStorage.getItem('ot9-theme') &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)),
-)
+  typeof window !== "undefined" &&
+    (window.localStorage.getItem("ot9-theme") === "dark" ||
+      (!window.localStorage.getItem("ot9-theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)),
+);
 
 const service = computed(() => {
-  const match = services.find((item) => item.slug === route.params.slug)
-  return match || services[0]
-})
+  const match = services.find((item) => item.slug === route.params.slug);
+  return match || services[0];
+});
 
 function toggleTheme() {
-  isDark.value = !isDark.value
-  window.localStorage.setItem('ot9-theme', isDark.value ? 'dark' : 'light')
+  isDark.value = !isDark.value;
+  window.localStorage.setItem("ot9-theme", isDark.value ? "dark" : "light");
 }
 </script>
 
@@ -139,7 +159,7 @@ function toggleTheme() {
   --mist: #f3f6fd;
   --soft-text: #69758b;
   color: var(--ink);
-  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   background: var(--page);
   min-height: 100vh;
 }
@@ -241,7 +261,7 @@ function toggleTheme() {
   height: 3px;
   border-radius: 2px;
   background: currentColor;
-  content: '';
+  content: "";
 }
 
 .detail-actions {
@@ -281,7 +301,9 @@ function toggleTheme() {
   background: #1a2b4c;
 }
 
-.service-page.is-dark .detail-menubar :deep(.p-menubar-item.is-current .p-menubar-item-link) {
+.service-page.is-dark
+  .detail-menubar
+  :deep(.p-menubar-item.is-current .p-menubar-item-link) {
   color: #9fc0ff;
   background: #1a2e52;
 }
@@ -302,7 +324,13 @@ function toggleTheme() {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M48 0H0V48' fill='none' stroke='%2396a9cc' stroke-opacity='.28' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 48px 48px;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 18%,
+    #000 82%,
+    transparent 100%
+  );
   opacity: 0.4;
 }
 
