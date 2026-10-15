@@ -1,5 +1,5 @@
 <template>
-  <div class="services-page">
+  <div class="services-page" :class="{ 'is-dark': isDark, dark: isDark }">
     <header class="services-header">
       <a class="wordmark" :href="baseUrl" aria-label="OT9 Labs home">
         <span class="wordmark-main">OT<span>9</span></span>
@@ -10,7 +10,22 @@
           <IconMenu2 :size="20" aria-hidden="true" />
         </template>
       </Menubar>
-      <a class="email-link" href="mailto:nyx@ot9labs.com">Email Us</a>
+      <div class="detail-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          @click="toggleTheme"
+        >
+          <IconSun v-if="isDark" :size="19" aria-hidden="true" />
+          <IconMoon v-else :size="19" aria-hidden="true" />
+        </button>
+        <a class="detail-email" href="mailto:nyx@ot9labs.com">
+          <IconMail :size="17" aria-hidden="true" />
+          Email Us
+        </a>
+      </div>
     </header>
 
     <main>
@@ -113,12 +128,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Menubar from 'primevue/menubar'
 import {
   IconArrowRight,
   IconCircleCheck,
+  IconMail,
   IconMenu2,
+  IconMoon,
   IconShield,
+  IconSun,
   IconTarget,
   IconUsersGroup,
 } from '@tabler/icons-vue'
@@ -129,6 +148,12 @@ import {
 } from '@/data/homepageServices'
 
 const baseUrl = import.meta.env.BASE_URL
+const isDark = ref(
+  typeof window !== 'undefined' &&
+    (window.localStorage.getItem('ot9-theme') === 'dark' ||
+      (!window.localStorage.getItem('ot9-theme') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)),
+)
 const navigation = [
   { label: 'Home', url: `${baseUrl}#home` },
   { label: 'About Us', url: `${baseUrl}#about` },
@@ -136,6 +161,11 @@ const navigation = [
   { label: 'Team Sport', url: `${baseUrl}#team-sport` },
   { label: 'Contact', url: `${baseUrl}#contact` },
 ]
+
+function toggleTheme() {
+  isDark.value = !isDark.value
+  window.localStorage.setItem('ot9-theme', isDark.value ? 'dark' : 'light')
+}
 </script>
 
 <style scoped>
@@ -151,6 +181,15 @@ const navigation = [
   font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
 }
 
+.services-page.is-dark {
+  --ink: #e8eefb;
+  --muted: #aab6ce;
+  --line: #26334b;
+  color-scheme: dark;
+  color: var(--ink);
+  background: #0b1428;
+}
+
 .services-header {
   position: sticky;
   z-index: 20;
@@ -163,6 +202,10 @@ const navigation = [
   background: rgb(255 255 255 / 92%);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
+}
+
+.services-page.is-dark .services-header {
+  background: rgb(11 20 40 / 92%);
 }
 
 .wordmark {
@@ -216,6 +259,21 @@ const navigation = [
   background: #f3f6fd;
 }
 
+.services-page.is-dark .services-menubar :deep(.p-menubar-item-link) {
+  color: #c1cbe0;
+}
+
+.services-page.is-dark .services-menubar :deep(.p-menubar-item-link:hover),
+.services-page.is-dark .services-menubar :deep(.p-menubar-button:hover) {
+  color: #fff;
+  background: #1a2b4c;
+}
+
+.services-page.is-dark .services-menubar :deep(.p-menubar-item.is-current .p-menubar-item-link) {
+  color: #9fc0ff;
+  background: #1a2e52;
+}
+
 .services-menubar :deep(.p-menubar-item.is-current .p-menubar-item-link) {
   position: relative;
   color: var(--brand);
@@ -234,19 +292,83 @@ const navigation = [
   content: "";
 }
 
-.email-link {
+.detail-actions {
+  display: flex;
   justify-self: end;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.theme-toggle:hover {
+  color: var(--brand);
+  background: rgb(37 99 235 / 9%);
+}
+
+.theme-toggle:focus-visible,
+.detail-email:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 45%);
+  outline-offset: 3px;
 }
 
 .services-menubar :deep(.p-menubar-button) {
   color: var(--ink);
 }
 
-.email-link {
-  color: var(--ink);
+.detail-email {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--brand);
+  border-radius: 8px;
+  background: var(--brand);
+  color: #fff;
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.detail-email:hover {
+  transform: translateY(-1px);
+  background: #1d4ed8;
+  box-shadow: 0 8px 18px rgb(37 99 235 / 22%);
+}
+
+.services-page.is-dark .detail-email {
+  border-color: #60a5fa;
+  background: #60a5fa;
+  color: #08142d;
+}
+
+.services-page.is-dark .detail-email:hover {
+  background: #93c5fd;
+}
+
+.detail-email svg {
+  flex: none;
 }
 
 .services-hero {
@@ -429,6 +551,10 @@ const navigation = [
   background: #f3f6fd;
 }
 
+.services-page.is-dark .service-outcome {
+  background: #111d35;
+}
+
 .service-outcome span {
   font-size: 0.65rem;
 }
@@ -557,6 +683,35 @@ const navigation = [
   background: #fff;
 }
 
+.services-page.is-dark .layer-card {
+  border-color: #293b5b;
+  border-top-color: #5688ed;
+  background: #172640;
+}
+
+.services-page.is-dark .services-hero > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.services-page.is-dark .services-hero .services-lead {
+  color: var(--ink) !important;
+}
+
+.services-page.is-dark .service-detail {
+  border-color: var(--line);
+}
+
+.services-page.is-dark .service-section ul li,
+.services-page.is-dark .service-outcome p {
+  color: var(--ink);
+}
+
+.services-page.is-dark .service-flow li span {
+  border-color: #293b5b;
+  background: #172640;
+  color: var(--ink);
+}
+
 .layer-card>p {
   margin: 0;
   font-size: 0.62rem;
@@ -603,6 +758,12 @@ const navigation = [
     background: #fff;
     box-shadow: 0 16px 32px rgb(10 26 69 / 10%);
   }
+
+  .services-page.is-dark .services-menubar :deep(.p-menubar-root-list) {
+    border-color: #293b5b;
+    background: #121f37;
+    box-shadow: 0 16px 32px rgb(0 0 0 / 28%);
+  }
 }
 
 @media (max-width: 640px) {
@@ -610,8 +771,20 @@ const navigation = [
     min-height: 0;
   }
 
-  .email-link {
-    font-size: 0.68rem;
+  .detail-actions {
+    gap: 0.35rem;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .detail-email {
+    min-height: 38px;
+    gap: 0.35rem;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.72rem;
   }
 
   .services-hero {
