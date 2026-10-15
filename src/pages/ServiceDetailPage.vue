@@ -33,9 +33,9 @@
             <IconSun v-if="isDark" :size="19" aria-hidden="true" />
             <IconMoon v-else :size="19" aria-hidden="true" />
           </button>
-          <a class="detail-email" href="mailto:mac@ot9labs.com">
+          <a class="detail-email" href="mailto:nyx@ot9labs.com">
             <IconMail :size="17" aria-hidden="true" />
-            Email us
+            Email Us
           </a>
         </div>
       </div>
@@ -47,7 +47,7 @@
         <div class="detail-container detail-hero-inner">
           <a class="back-link" :href="`${baseUrl}#services`">
             <IconArrowLeft :size="16" aria-hidden="true" />
-            All services
+            All Services
           </a>
           <div class="detail-intro">
             <div class="detail-icon">
