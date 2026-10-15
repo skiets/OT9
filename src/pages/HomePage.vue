@@ -429,7 +429,7 @@
               >
                 <span class="security-layer-number">0{{ index + 1 }}</span>
                 <p class="security-layer-dimension">{{ layer.dimension }}</p>
-                <h3>{{ layer.service }}</h3>
+                <h3 class="font-medium">{{ layer.service }}</h3>
                 <p>{{ layer.description }}</p>
               </article>
             </div>
