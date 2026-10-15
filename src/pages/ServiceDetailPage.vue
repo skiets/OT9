@@ -61,7 +61,7 @@
           <p class="detail-lead">{{ service.intro }}</p>
           <p class="detail-description">{{ service.description }}</p>
           <a class="detail-primary-link" :href="`${baseUrl}#contact`">
-            Talk to our Team
+            Talk to Our Team
             <IconArrowRight :size="17" aria-hidden="true" />
           </a>
         </div>
